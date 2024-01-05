@@ -1,0 +1,3 @@
+com/example/song/repository/SongJpaRepository.class
+com/example/song/service/SongJpaService.class
+com/example/song/repository/SongRepository.class
