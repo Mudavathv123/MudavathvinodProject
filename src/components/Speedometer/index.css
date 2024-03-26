@@ -1,0 +1,66 @@
+/* Write your CSS here */
+
+* {
+  margin: 0px;
+}
+.bg-container {
+  background-color: #07080c;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+.container > h1 {
+  color: #ffffff;
+  font-size: 48px;
+  font-family: 'Roboto';
+}
+.container > p {
+  font-family: 24px;
+  color: #ffffff;
+  font-family: 'Roboto';
+  margin-top: 10px;
+}
+.img-container > img {
+  height: 400px;
+}
+
+.btn1 {
+  height: 36px;
+  width: 98px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'Roboto';
+  background-color: #0b69ff;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn2 {
+  height: 36px;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px;
+  font-family: 'Roboto';
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  margin-left: 20px;
+}
+
+.btn-container {
+  margin-top: 20px;
+}
+
+.head {
+  color: #ffffff;
+  font-size: 58px;
+  text-align: center;
+}
