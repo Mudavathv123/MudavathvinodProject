@@ -1,0 +1,27 @@
+/* Write your CSS code here */
+
+.blog-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  font-size: 16px;
+  color: #12022f;
+  font-family: 'Roboto';
+}
+
+.description {
+  font-family: 'Roboto';
+  color: #9aa5b1;
+  font-size: 14px;
+}
+
+.date-published {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #9aa5b1;
+  align-self: start;
+}
