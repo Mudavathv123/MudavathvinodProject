@@ -1,0 +1,14 @@
+.tab-images > button > img {
+  height: 70px;
+}
+.thumbnail-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .tab-images > img {
+    height: 80px;
+  }
+}

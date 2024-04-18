@@ -1,0 +1,29 @@
+.tabname {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+
+.active-tab {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 16px;
+  color: #fec653;
+  text-decoration: underline;
+  padding: 10px;
+}
+
+.tabitem-container {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.tabs-items > button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
