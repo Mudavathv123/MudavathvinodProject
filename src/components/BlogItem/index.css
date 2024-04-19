@@ -1,0 +1,62 @@
+/* Write your CSS code here */
+
+.blog-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.blog-items {
+  border-radius: 6px;
+  border: 2px solid #d3d3d3;
+  padding: 20px;
+}
+
+.avtar-img {
+  height: 36px;
+  width: 36px;
+  border-radius: 36px;
+}
+
+.title-head {
+  font-size: 18px;
+  font-family: 'Roboto';
+  color: #000000;
+}
+
+.topic {
+  font-size: 14px;
+  font-family: 'Roboto';
+  color: #8e8e8e;
+}
+
+.avtar-name {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Roboto';
+  color: #8e8e8e;
+}
+
+.avtar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-link {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .blog-img {
+    width: 300px;
+    border-radius: 8px;
+  }
+
+  .blog-items {
+    display: flex;
+    gap: 20px;
+    border-radius: 6px;
+    border: 2px solid #d3d3d3;
+    padding: 20px;
+  }
+}
