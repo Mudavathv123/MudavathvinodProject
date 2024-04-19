@@ -1,0 +1,27 @@
+/* Write your CSS code here */
+
+.logo {
+  height: 32px;
+}
+p {
+  color: #ffff;
+  font-family: 'Roboto';
+  font-weight: 600;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dolor-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+.cryptocurrency-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,61 @@
+/* Write your CSS code here */
+
+.crypocurreny-head {
+  font-size: 24px;
+  font-family: 'Roboto';
+  text-align: center;
+  color: #00e7ff;
+}
+
+.cryptocurrency-img {
+  width: 360px;
+}
+
+.crypocurreny-items-container {
+  list-style-type: none;
+  padding: 10px;
+}
+.head-para > p {
+  font-size: 18px;
+  color: #ffff;
+  font-family: 'Roboto';
+  font-weight: 600;
+}
+
+.type {
+  font-size: 18px;
+  color: #ffff;
+  font-family: 'Roboto';
+  font-weight: 600;
+}
+
+.item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #092e33;
+  padding: 10px;
+}
+.head-para {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.list {
+  border: 3px solid #00e7ff;
+  border-radius: 8px;
+}
+
+crypocurreny-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: ceneter;
+}
+
+@media screen and (min-width: 768px) {
+  .cryptocurrency-img {
+    width: 60%;
+  }
+}
