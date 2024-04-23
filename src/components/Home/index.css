@@ -1,0 +1,64 @@
+/* Write your CSS code here */
+
+.Home-container {
+  padding: 20px;
+}
+.small-device-img {
+  width: 240px;
+}
+
+.shop-now-btn {
+  height: 42px;
+  width: 160px;
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ffff;
+  background-color: #0967d2;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  align-self: start;
+}
+
+.in-blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
+  text-align: center;
+}
+
+.small-large-img {
+  display: none;
+}
+
+@media screen and (orientation: landscape) and (min-width: 768px) {
+  .small-large-img {
+    display: block;
+    height: 400px;
+  }
+  .small-device-img {
+    display: none;
+  }
+  .home-blog-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    gap: 40px;
+    margin-top: 40px;
+    padding: 30px;
+  }
+  .in-blog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+    font-family: 'Roboto';
+    text-align: left;
+  }
+}

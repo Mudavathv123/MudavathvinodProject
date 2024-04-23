@@ -1,0 +1,114 @@
+/* Write your CSS code here */
+
+.login-form-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.logo-container {
+  order: -1;
+}
+.loginpage-image {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form {
+  padding: 20px;
+  background-color: #ffff;
+  box-shadow: 0px 4px 16px 0px #bfbfbf;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 600px;
+  max-width: 400px;
+}
+
+.logo {
+  height: 48px;
+  align-self: center;
+}
+
+.form-logo {
+  display: none;
+}
+
+input {
+  width: 100%;
+  height: 48px;
+  outline: none;
+  background-color: #e6f6ff;
+  border: none;
+  border-radius: 8px;
+  padding-left: 20px;
+  font-size: 18px;
+}
+
+::placeholder {
+  padding-left: 10px;
+  font-size: 18px;
+  font-family: 'Roboto';
+  color: #64748b;
+}
+label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #1e293b;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: 'Roboto';
+}
+
+.submit-btn {
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #fff;
+  border-radius: 8px;
+  height: 48px;
+  background-color: #0b69ff;
+  border: none;
+  cursor: pointer;
+}
+.error {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ff0b37;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .login-form-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+  }
+  .form-logo {
+    height: 48px;
+    align-self: center;
+    display: block;
+  }
+  .logo {
+    display: none;
+  }
+  .form {
+    padding: 20px;
+    background-color: #ffff;
+    box-shadow: 0px 4px 16px 0px #bfbfbf;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    height: 400px;
+    width: 360px;
+  }
+}

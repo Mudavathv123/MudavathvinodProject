@@ -1,0 +1,80 @@
+/* Write your CSS code here */
+
+.small-device-navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.list-container > li > img {
+  height: 28px;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+.list-container {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #d7dfe9;
+  padding: 10px;
+}
+
+.logout-btn-img {
+  height: 24px;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.home-logo {
+  height: 24px;
+}
+
+.home-page-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.large-divice-nav-container {
+  display: none;
+}
+
+@media screen and (orientation: landscape) and (min-width: 768px) {
+  .large-divice-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .home-logo {
+    height: 48px;
+  }
+  .logout-btn {
+    background-color: #0b69ff;
+    font-family: 'Roboto';
+    font-size: 18px;
+    color: #fff;
+    height: 42px;
+    width: 120px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  .small-device-navbar {
+    display: none;
+  }
+  .nav-list-container {
+    list-style-type: none;
+    font-family: 'Roboto';
+    font-weight: 600;
+    color: #475569;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+}
