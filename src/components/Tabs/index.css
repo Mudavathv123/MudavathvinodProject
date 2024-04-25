@@ -1,0 +1,23 @@
+
+
+
+.default-btn {
+    height:36px;
+    width: 120px;
+    font-family: "Roboto";
+    font-weight: 600;
+    color:#ffff;
+    font-size: 16px;
+    background-color: transparent;
+    border: none; 
+}
+.active-btn {
+    height:36px;
+    width: 120px;
+    font-family: "Roboto";
+    font-weight: 600;
+    color:#dea42e;
+    font-size: 16px;
+    background-color: transparent;
+    border: none; 
+}

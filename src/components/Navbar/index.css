@@ -1,0 +1,46 @@
+
+.navbar-container {
+    background-color: #2c0e3a;
+    padding:6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    
+}
+.logo {
+    width: 80px;
+}
+.socre-time-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.score-container {
+    font-size: 12px;
+    font-family: "Roboto";
+    font-weight: 600;
+    color:#ffff;
+}
+
+.time-container > img{
+    height:14px;
+}
+.time-container > p {
+    font-size: 14px;
+    font-family: "Roboto";
+    font-weight: 600;
+    color: #b27f1a
+}
+.time-container {
+    display: flex;
+    align-items: center;
+    gap:6px;
+}
+.score-container > span {
+    font-size: 18px;
+    color:#b27f1a;
+}
+.score {
+    font-size: 12px;
+}

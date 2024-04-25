@@ -1,0 +1,16 @@
+
+.thumnail-img {
+    width: 60px;
+}
+.thumnail-buuton {
+    border:none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+} 
+
+@media screen and (min-width:768px){
+    .thumnail-img {
+        width:40px;
+    }
+}
