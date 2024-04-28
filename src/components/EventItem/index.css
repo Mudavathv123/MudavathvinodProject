@@ -1,0 +1,29 @@
+/* Write your CSS here */
+
+.event-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.event-img {
+  height: 160px;
+  transition: 0.5s;
+}
+.event-img:hover {
+  transform: scale(1.02);
+  outline: auto;
+}
+
+.name {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.location {
+  font-family: 'Roboto';
+  color: #ffffff;
+}

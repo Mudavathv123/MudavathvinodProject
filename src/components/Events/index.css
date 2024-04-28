@@ -1,0 +1,43 @@
+/* Write your CSS here */
+
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+.events-list-container {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.events-container {
+  display: flex;
+}
+.event-items-container {
+  background-color: #323f4b;
+  max-width: 800px;
+  padding: 30px;
+}
+.event-items-container-head {
+  font-family: 'Roboto';
+  color: #ffff;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.active-event-registration-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.no-active-view-container > p {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+  color: #475569;
+  text-align: center;
+}

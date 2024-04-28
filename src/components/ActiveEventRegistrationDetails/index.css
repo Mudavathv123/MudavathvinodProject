@@ -1,0 +1,77 @@
+/* Write your CSS here */
+.yet-to-register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.yet-to-register-container > img {
+  height: 200px;
+}
+
+.yet-to-register-container > p {
+  font-family: 'Roboto';
+  color: #64748b;
+  font-size: 18px;
+  text-align: center;
+}
+
+.yet-to-register-container > button {
+  height: 40px;
+  width: 160px;
+  background-color: #0967d2;
+  border-radius: 8px;
+  border: none;
+  color: #ffff;
+  font-size: 18px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.registrations-closed-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+.registrations-closed-view > img {
+  height: 200px;
+}
+
+.registrations-closed-view > p {
+  font-family: 'Roboto';
+  color: #64748b;
+  font-size: 18px;
+  text-align: center;
+}
+
+.registrations-closed-view > h1 {
+  font-family: 'Roboto';
+  font-weight: 800;
+  margin-top: 10px;
+  color: #323f4b;
+}
+
+.registered-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.registered-view > img {
+  height: 64px;
+}
+
+.registered-view > h1 {
+  font-family: 'Roboto';
+  font-weight: 800;
+  margin-top: 10px;
+  color: #323f4b;
+}
+
