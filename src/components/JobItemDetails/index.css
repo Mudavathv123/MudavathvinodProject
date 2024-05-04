@@ -1,0 +1,137 @@
+.job-items-container {
+  background-color: #000000;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.link-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vist-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4f46e5;
+}
+
+.link {
+  text-decoration: none;
+}
+.skill-list-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 20px;
+}
+
+.skill-head {
+  font-size: 18px;
+  font-family: 'Roboto';
+  color: #fff;
+  font-weight: 600;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.skill-item > img {
+  height: 36px;
+}
+.skill-item > p {
+  font-family: 'Roboto';
+  color: #fff;
+  font-size: 14px;
+}
+
+.lifeAtCompany-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.lifeAtCompany-container > h1 {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffff;
+  align-self: start;
+}
+.lifeAtCompany-container > p {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #ffff;
+}
+
+.lifeAtCompany-container > img {
+  width: 100%;
+}
+
+.similar-item-container {
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-item {
+  background-color: #202020;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.similar-jobs-head {
+  font-size: 28px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  color: #ffff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .job-items-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .job-item {
+    max-width: 800px;
+  }
+  .similar-item-container {
+    align-self: start;
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  .similar-jobs-head {
+    align-self: start;
+    font-size: 28px;
+  }
+  .lifeAtCompany-container > img {
+    width: 400px;
+  }
+  .skill-list-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 10px;
+  }
+}
