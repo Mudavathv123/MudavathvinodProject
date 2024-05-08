@@ -1,0 +1,44 @@
+/* Write your CSS here */
+
+.cart-summary-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.card-head {
+  font-size: 28px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #616e7c;
+}
+
+.total {
+  font-size: 36px;
+  color: #171f46;
+  font-weight: 600;
+}
+
+.no-of-items {
+  font-size: 16px;
+  font-family: 'Roboto';
+  color: #616e7c;
+}
+
+.checkout-btn {
+  height: 36px;
+  width: 100%;
+  font-family: 'Roboto';
+  font-weight: 600;
+  color: #fff;
+  background-color: #0b69ff;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card {
+  height: 200px;
+  max-width: 400px;
+  padding: 20px;
+}
