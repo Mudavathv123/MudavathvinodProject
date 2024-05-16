@@ -1,0 +1,32 @@
+.travel-guide-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+
+}
+
+.travel-guide-items-container {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-left: 0px;
+}
+
+.travel-head {
+  font-size: 36px;
+  font-family: 'Roboto';
+  font-weight: 800;
+  color: #334155;
+  text-decoration: underline;
+  text-decoration-color: #52bbf0;
+}
+
+.loader {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+}
