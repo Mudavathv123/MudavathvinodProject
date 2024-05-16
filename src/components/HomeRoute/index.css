@@ -1,0 +1,139 @@
+.course-name {
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: 600;
+  color: #000;
+}
+
+.courses-items-container {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.courses-list-container {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.HomeRoute {
+  min-height: 90vh;
+  padding: 20px;
+}
+
+.home-head {
+  font-size: 36px;
+  font-family: 'Roboto';
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.failure-view {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.failuer-img {
+  height: 400px;
+}
+
+.retry-btn {
+  height: 36px;
+  width: 80px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Roboto';
+  color: #fff;
+  background-color: #4656a1;
+  cursor: pointer;
+}
+
+.loader {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+}
+
+.course-link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .course-name {
+    font-size: 16px;
+    font-family: 'Roboto';
+    font-weight: 600;
+    color: #000;
+  }
+
+  .courses-items-container {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .courses-list-container {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .HomeRoute {
+    min-height: 90vh;
+    padding: 20px;
+  }
+
+  .home-head {
+    font-size: 28px;
+    font-family: 'Roboto';
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+
+  .failure-view {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .failuer-img {
+    height: 200px;
+  }
+
+  .retry-btn {
+    height: 36px;
+    width: 80px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto';
+    color: #fff;
+    background-color: #4656a1;
+    cursor: pointer;
+  }
+
+  .loader {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+  }
+}
