@@ -1,0 +1,21 @@
+.tag-button {
+  height: 36px;
+  border-radius: 36px;
+  border: 1.5px solid #f3aa4e;
+  cursor: pointer;
+  outline: none;
+  color: #f3aa4e;
+  background-color: transparent;
+  min-width: 120px;
+}
+
+.active-btn {
+  height: 36px;
+  border-radius: 36px;
+  border: none;
+  background-color: #f3aa4e;
+  cursor: pointer;
+  outline: none;
+  color: #000;
+  min-width: 120px;
+}

@@ -1,0 +1,29 @@
+.task-name {
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: 600;
+  color: #fff;
+}
+
+.seleted-value {
+  height: 36px;
+  min-width: 120px;
+  background-color: #f3aa4e;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border-radius: 36px;
+  font-size: 16px;
+  font-family: 'Roboto';
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.task-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #131213;
+}
