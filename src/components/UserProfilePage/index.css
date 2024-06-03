@@ -1,0 +1,39 @@
+@media screen and (max-width: 768px) {
+  .user-profile-loader {
+    min-height: 80vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-profile-post-failure-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    min-height: 600px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .user-profile-loader {
+    min-height: 80vh;
+    width: 800vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-profile-page-container {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  .user-profile-post-failure-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 1040px;
+    height: 866px;
+  }
+}

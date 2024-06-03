@@ -1,0 +1,148 @@
+import Cookies from 'js-cookie'
+import {Component} from 'react'
+import {withRouter, Link} from 'react-router-dom'
+import {FaSearch} from 'react-icons/fa'
+import SearchCaptionContext from '../../context/SearchCaptionContext'
+import './index.css'
+
+class Header extends Component {
+  state = {showMenu: false}
+
+  clickToLogout = () => {
+    const {history} = this.props
+    Cookies.remove('jwt_token')
+    history.replace('/login')
+  }
+
+  clickToOpenMenu = () => {
+    this.setState({showMenu: true})
+  }
+
+  clickToCloseMenu = () => {
+    this.setState({showMenu: false})
+  }
+
+  render() {
+    const {showMenu} = this.state
+    return (
+      <SearchCaptionContext.Consumer>
+        {value => {
+          const {
+            searchCaptionValue,
+            changeSeacrhCaptionValue,
+            searchCaption,
+            renderToHome,
+          } = value
+
+          const onClickSearchButton = () => {
+            searchCaption()
+            console.log('search button triggered')
+          }
+
+          const onChangeSearchCaption = event => {
+            changeSeacrhCaptionValue(event.target.value)
+          }
+
+          const clickToRender = () => {
+            renderToHome()
+          }
+
+          return (
+            <>
+              <div className="header-container">
+                <div className="header-logo-container">
+                  <Link to="/" onClick={clickToRender}>
+                    <img
+                      src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1717234247/MyMiniProjectsImages/vzpewib6xu0gzldqpy75.png"
+                      alt="website logo"
+                      className="header-logo"
+                    />
+                  </Link>
+                  <h1 className="header-app-name">Insta Share</h1>
+                </div>
+                <button
+                  type="button"
+                  className="menu-button"
+                  onClick={this.clickToOpenMenu}
+                >
+                  <img
+                    src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1717240259/MyMiniProjectsImages/js8e70oxaogfedserswd.png"
+                    alt="menu icon"
+                    className="menu-icom-img"
+                  />
+                </button>
+
+                <nav className="navbar">
+                  <div className="search-input-container">
+                    <input
+                      type="search"
+                      placeholder="Search Caption"
+                      className="search-input"
+                      onChange={onChangeSearchCaption}
+                      value={searchCaptionValue}
+                    />
+                    <button
+                      type="button"
+                      className="search-btn"
+                      aria-label="search"
+                      data-testid="searchIcon"
+                      onClick={onClickSearchButton}
+                    >
+                      <FaSearch size="10" />
+                    </button>
+                  </div>
+                  <ul className="nav-links-container">
+                    <Link to="/" className="link-style" onClick={clickToRender}>
+                      <li className="link-name">Home</li>
+                    </Link>
+                    <Link to="/my-profile" className="link-style">
+                      <li className="link-name">Profile</li>
+                    </Link>
+                  </ul>
+                  <button
+                    className="logout-btn"
+                    type="button"
+                    onClick={this.clickToLogout}
+                  >
+                    Logout
+                  </button>
+                </nav>
+              </div>
+              {showMenu && (
+                <ul className="max-divice-navbar">
+                  <Link to="/" className="link-style" onClick={clickToRender}>
+                    <li className="nav-item">Home</li>
+                  </Link>
+                  <li className="nav-item">Search</li>
+                  <Link to="/my-profile" className="link-style">
+                    <li className="nav-item">Profile</li>
+                  </Link>
+                  <button
+                    className="logout-btn"
+                    type="button"
+                    onClick={this.clickToLogout}
+                  >
+                    Logout
+                  </button>
+                  <button
+                    className="close-btn"
+                    type="button"
+                    onClick={this.clickToCloseMenu}
+                  >
+                    <img
+                      src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1717338043/MyMiniProjectsImages/cp9ltjgvdvphtq8l5xss.png"
+                      alt="close img"
+                      className="close-img"
+                    />
+                  </button>
+                </ul>
+              )}
+            </>
+          )
+        }}
+      </SearchCaptionContext.Consumer>
+    )
+  }
+}
+
+export default withRouter(Header)

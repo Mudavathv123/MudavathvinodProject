@@ -1,0 +1,168 @@
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .link-style {
+    text-decoration: none;
+  }
+  .max-divice-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  .nav-item {
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 500;
+    color: #262626;
+  }
+  .logout-btn {
+    width: 86px;
+    height: 32px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #4094ef;
+    outline: none;
+    cursor: pointer;
+    border: none;
+  }
+  .close-btn {
+    width: 24px;
+    height: 24px;
+    top: 84px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .header-container {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-logo {
+    width: 55px;
+    height: 28px;
+  }
+
+  .header-app-name {
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+  }
+  .menu-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+
+  .link-style {
+    text-decoration: none;
+  }
+
+  .header-container {
+    padding: 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-logo {
+    width: 59px;
+    height: 30px;
+  }
+
+  .header-app-name {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .search-input-container {
+    width: 214px;
+    height: 28px;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+    border-radius: 3px;
+  }
+
+  .search-input {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    color: #989898;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 10px;
+    text-align: left;
+  }
+  .search-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 34px;
+    height: 27px;
+    color: #989898;
+    background-color: #dbdbdb;
+    border-radius: 0px, 3px, 3px, 0px;
+  }
+  .nav-links-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  .link-name {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+    color: #262626;
+  }
+  .logout-btn {
+    width: 86px;
+    height: 32px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #4094ef;
+    outline: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

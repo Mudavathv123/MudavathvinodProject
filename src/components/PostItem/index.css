@@ -1,0 +1,182 @@
+@media screen and (max-width: 768px) {
+  .profile-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+  }
+  .profile_image {
+    width: 28px;
+    height: 28px;
+    border: 1.03px solid
+      linear-gradient(314.35deg, #e20337 6.03%, #c60188 40.88%, #7700c3 73.23%);
+    border-radius: 14px;
+  }
+
+  .profile_name {
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+  }
+
+  .post-img {
+    width: 360px;
+    height: 375px;
+    align-self: center;
+  }
+
+  .likes-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .likes-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .bold-text {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+  }
+
+  .comment {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #262626;
+  }
+
+  .caption {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #262626;
+  }
+
+  .posted-time {
+    font-family: 'Roboto';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #989898;
+  }
+  .post-description {
+    padding: 20px;
+  }
+
+  .post-item-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 768px) {
+  .profile-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+  }
+  .profile_image {
+    width: 28px;
+    height: 28px;
+    border: 1.03px solid
+      linear-gradient(314.35deg, #e20337 6.03%, #c60188 40.88%, #7700c3 73.23%);
+    border-radius: 14px;
+  }
+
+  .profile_name {
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+  }
+
+  .search-post-img {
+    width: 976px;
+    height: 614px;
+  }
+
+  .post-img {
+    width: 1040px;
+    height: 614px;
+  }
+
+  .likes-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .likes-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .bold-text {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+  }
+
+  .comment {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #262626;
+  }
+
+  .caption {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #262626;
+  }
+
+  .posted-time {
+    font-family: 'Roboto';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #989898;
+  }
+  .post-description {
+    padding: 20px;
+  }
+
+  .post-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 1040px;
+    height: 866px;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+  }
+  .search-post-item-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    width: 976px;
+    height: 866px;
+  }
+}
