@@ -26,6 +26,11 @@
     height: 375px;
     align-self: center;
   }
+  .search-post-img {
+    width: 360px;
+    height: 375px;
+    align-self: center;
+  }
 
   .likes-container {
     display: flex;

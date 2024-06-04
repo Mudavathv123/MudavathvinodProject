@@ -6,13 +6,7 @@ import SearchCaptionContext from '../../context/SearchCaptionContext'
 import './index.css'
 
 class Header extends Component {
-  state = {showMenu: false}
-
-  clickToLogout = () => {
-    const {history} = this.props
-    Cookies.remove('jwt_token')
-    history.replace('/login')
-  }
+  state = {showMenu: false, showMaxSearch: false}
 
   clickToOpenMenu = () => {
     this.setState({showMenu: true})
@@ -23,7 +17,7 @@ class Header extends Component {
   }
 
   render() {
-    const {showMenu} = this.state
+    const {showMenu, showMaxSearch} = this.state
     return (
       <SearchCaptionContext.Consumer>
         {value => {
@@ -32,11 +26,19 @@ class Header extends Component {
             changeSeacrhCaptionValue,
             searchCaption,
             renderToHome,
+            activeTab,
+            changeActiveTab,
           } = value
+
+          const clickToLogout = () => {
+            const {history} = this.props
+            Cookies.remove('jwt_token')
+            history.replace('/login')
+            changeActiveTab('Home')
+          }
 
           const onClickSearchButton = () => {
             searchCaption()
-            console.log('search button triggered')
           }
 
           const onChangeSearchCaption = event => {
@@ -46,6 +48,29 @@ class Header extends Component {
           const clickToRender = () => {
             renderToHome()
           }
+
+          const onClickToHome = () => {
+            changeActiveTab('Home')
+          }
+
+          const onClickToProfile = () => {
+            changeActiveTab('Profile')
+          }
+
+          const onClickToSearch = () => {
+            changeActiveTab('Search')
+            if (activeTab === 'Home')
+              this.setState({showMaxSearch: true, showMenu: false})
+          }
+
+          const activeTabHomeColor =
+            activeTab === 'Home' ? 'active-tab-name' : 'link-name'
+
+          const activeTabProfileColor =
+            activeTab === 'Profile' ? 'active-tab-name' : 'link-name'
+
+          const activeTabSearchColor =
+            activeTab === 'Search' ? 'active-tab-name' : 'link-name'
 
           return (
             <>
@@ -93,16 +118,26 @@ class Header extends Component {
                   </div>
                   <ul className="nav-links-container">
                     <Link to="/" className="link-style" onClick={clickToRender}>
-                      <li className="link-name">Home</li>
+                      <li
+                        className={activeTabHomeColor}
+                        onClick={onClickToHome}
+                      >
+                        Home
+                      </li>
                     </Link>
                     <Link to="/my-profile" className="link-style">
-                      <li className="link-name">Profile</li>
+                      <li
+                        className={activeTabProfileColor}
+                        onClick={onClickToProfile}
+                      >
+                        Profile
+                      </li>
                     </Link>
                   </ul>
                   <button
                     className="logout-btn"
                     type="button"
-                    onClick={this.clickToLogout}
+                    onClick={clickToLogout}
                   >
                     Logout
                   </button>
@@ -111,16 +146,28 @@ class Header extends Component {
               {showMenu && (
                 <ul className="max-divice-navbar">
                   <Link to="/" className="link-style" onClick={clickToRender}>
-                    <li className="nav-item">Home</li>
+                    <li className={activeTabHomeColor} onClick={onClickToHome}>
+                      Home
+                    </li>
                   </Link>
-                  <li className="nav-item">Search</li>
+                  <li
+                    className={activeTabSearchColor}
+                    onClick={onClickToSearch}
+                  >
+                    Search
+                  </li>
                   <Link to="/my-profile" className="link-style">
-                    <li className="nav-item">Profile</li>
+                    <li
+                      className={activeTabProfileColor}
+                      onClick={onClickToProfile}
+                    >
+                      Profile
+                    </li>
                   </Link>
                   <button
                     className="logout-btn"
                     type="button"
-                    onClick={this.clickToLogout}
+                    onClick={clickToLogout}
                   >
                     Logout
                   </button>
@@ -136,6 +183,26 @@ class Header extends Component {
                     />
                   </button>
                 </ul>
+              )}
+              {showMaxSearch && (
+                <div className="search-input-container">
+                  <input
+                    type="search"
+                    placeholder="Search Caption"
+                    className="search-input"
+                    onChange={onChangeSearchCaption}
+                    value={searchCaptionValue}
+                  />
+                  <button
+                    type="button"
+                    className="search-btn"
+                    aria-label="search"
+                    data-testid="searchIcon"
+                    onClick={onClickSearchButton}
+                  >
+                    <FaSearch size="10" />
+                  </button>
+                </div>
               )}
             </>
           )

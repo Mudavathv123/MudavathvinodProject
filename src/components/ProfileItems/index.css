@@ -132,6 +132,14 @@
     font-weight: 300;
     color: #262626;
   }
+  .popup-post-image {
+    width: 236px;
+    height: 236px;
+    border-radius: 8px;
+    box-shadow:
+      10px 10px 20px #262626,
+      -10px -10px 20px #262626;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -280,5 +288,14 @@
     display: flex;
     align-items: center;
     gap: 40px;
+  }
+
+  .popup-post-image {
+    width: 660px;
+    height: 660px;
+    border-radius: 8px;
+    box-shadow:
+      10px 10px 20px #262626,
+      -10px -10px 20px #262626;
   }
 }

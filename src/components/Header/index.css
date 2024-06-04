@@ -19,6 +19,12 @@
     font-weight: 500;
     color: #262626;
   }
+  .active-tab-name {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4094ef;
+  }
   .logout-btn {
     width: 86px;
     height: 32px;
@@ -55,6 +61,13 @@
     height: 28px;
   }
 
+  .link-name {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+    color: #262626;
+  }
+
   .header-app-name {
     font-family: 'Roboto';
     font-size: 18px;
@@ -70,6 +83,39 @@
     height: 24px;
     width: 24px;
   }
+
+  .search-input-container {
+    width: 280px;
+    height: 28px;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+    border-radius: 3px;
+    margin-left: 24px;
+  }
+
+  .search-input {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    color: #989898;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 10px;
+    text-align: left;
+  }
+  .search-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 34px;
+    height: 27px;
+    color: #989898;
+    background-color: #dbdbdb;
+    border-radius: 0px, 3px, 3px, 0px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -79,6 +125,13 @@
 
   .link-style {
     text-decoration: none;
+  }
+
+  .active-tab-name {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4094ef;
   }
 
   .header-container {

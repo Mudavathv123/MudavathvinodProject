@@ -7,7 +7,7 @@ import SearchCaptionContext from '../../context/SearchCaptionContext'
 import './index.css'
 
 const PostItem = props => {
-  const {post} = props
+  const {post, showSearchPostItemStyle} = props
   const {
     userId,
     postId,
@@ -19,16 +19,21 @@ const PostItem = props => {
     createdAt,
     likeStatus,
   } = post
+
   const {imageUrl, caption} = postDetails
+
+  const postItemClassName =
+    showSearchPostItemStyle === 'searchPost'
+      ? 'search-post-item-container'
+      : 'post-item-container'
+
+  const postImgClassName =
+    showSearchPostItemStyle === 'searchPost' ? 'search-post-img' : 'post-img'
 
   return (
     <SearchCaptionContext.Consumer>
       {value => {
         const {changeLikeToUnlike, changeUnlikeToLike} = value
-
-        const postItemClassName = true
-          ? 'search-post-item-container'
-          : 'post-item-container'
 
         const clickToUnLike = () => {
           changeLikeToUnlike(postId)
@@ -37,8 +42,6 @@ const PostItem = props => {
         const clickToLike = () => {
           changeUnlikeToLike(postId)
         }
-
-        const postImgClassName = true ? 'search-post-img' : 'post-img'
 
         return (
           <li className={postItemClassName}>

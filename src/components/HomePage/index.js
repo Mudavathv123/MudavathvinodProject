@@ -2,8 +2,6 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
 import Loader from 'react-loader-spinner'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 import PostItem from '../PostItem'
 import SearchPost from '../SearchPost'
 import Header from '../Header'
@@ -60,6 +58,62 @@ class HomePage extends Component {
     }
   }
 
+  changeLikeToUnlike = async postId => {
+    console.log('AaA2')
+    const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
+    const post = {like_status: true}
+    const jwtToken = Cookies.get('jwt_token')
+    const option = {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      body: JSON.stringify(post),
+    }
+
+    await fetch(postlikeApiUrl, option)
+    this.setState(prevState => ({
+      postDetailsList: prevState.postDetailsList.map(eachPost => {
+        if (eachPost.postId === postId) {
+          return {
+            ...eachPost,
+            likesCount: eachPost.likesCount - 1,
+            likeStatus: !eachPost.likeStatus,
+          }
+        }
+        return eachPost
+      }),
+    }))
+  }
+
+  changeUnlikeToLike = async postId => {
+    console.log('AaA1')
+    const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
+    const post = {like_status: false}
+    const jwtToken = Cookies.get('jwt_token')
+    const option = {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      body: JSON.stringify(post),
+    }
+
+    await fetch(postlikeApiUrl, option)
+    this.setState(prevState => ({
+      postDetailsList: prevState.postDetailsList.map(eachPost => {
+        if (eachPost.postId === postId) {
+          return {
+            ...eachPost,
+            likesCount: eachPost.likesCount + 1,
+            likeStatus: !eachPost.likeStatus,
+          }
+        }
+        return eachPost
+      }),
+    }))
+  }
+
   getStoryItems = () => {
     const {storiesList} = this.state
     return storiesList.map(eachStory => (
@@ -73,10 +127,10 @@ class HomePage extends Component {
   getStoriesSuccessView = () => {
     const settings = {
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
+      slidesToShow: 6,
+      slidesToScroll: 3,
       responsive: [
         {
           breakpoint: 1024,
@@ -113,7 +167,7 @@ class HomePage extends Component {
     const {storyApiStatus} = this.state
     switch (storyApiStatus) {
       case constApiStoriesStatus.inprogress:
-        return this.getLoaderView()
+        return this.getStoriesLoaderView()
       case constApiStoriesStatus.success:
         return this.getStoriesSuccessView()
       default:
@@ -171,20 +225,45 @@ class HomePage extends Component {
     this.getPostApiInformations()
   }
 
-  getLoaderView = () => (
-    <div className="loader-container" data-testid="loader">
-      <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
+  getStoriesLoaderView = () => (
+    <div className="stories-loader-container" data-testid="loader">
+      <Loader
+        type="TailSpin"
+        color="#4094EF"
+        height={50}
+        width={50}
+        className="loader"
+      />
+    </div>
+  )
+
+  getPostLoaderView = () => (
+    <div className="post-loader-container" data-testid="loader">
+      <Loader
+        type="TailSpin"
+        color="#4094EF"
+        height={50}
+        width={50}
+        className="loader"
+      />
     </div>
   )
 
   getPostSuccessView = () => {
     const {postDetailsList} = this.state
     return (
-      <ul className="posts-conatiner">
-        {postDetailsList.map(eachPost => (
-          <PostItem post={eachPost} key={eachPost.postId} />
-        ))}
-      </ul>
+      <SearchCaptionContext.Provider
+        value={{
+          changeLikeToUnlike: this.changeLikeToUnlike,
+          changeUnlikeToLike: this.changeUnlikeToLike,
+        }}
+      >
+        <ul className="posts-conatiner">
+          {postDetailsList.map(eachPost => (
+            <PostItem post={eachPost} key={eachPost.postId} />
+          ))}
+        </ul>
+      </SearchCaptionContext.Provider>
     )
   }
 
@@ -210,7 +289,7 @@ class HomePage extends Component {
     const {postsApiStatus} = this.state
     switch (postsApiStatus) {
       case constApiStoriesStatus.inprogress:
-        return this.getLoaderView()
+        return this.getPostLoaderView()
       case constApiStoriesStatus.success:
         return this.getPostSuccessView()
       case constApiStoriesStatus.failure:
@@ -225,6 +304,8 @@ class HomePage extends Component {
       <SearchCaptionContext.Consumer>
         {value => {
           const {searchCaptionValue, searchPostView} = value
+          console.log(searchCaptionValue)
+          console.log(searchPostView)
 
           return (
             <>

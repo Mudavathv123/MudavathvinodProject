@@ -69,6 +69,23 @@
     outline: none;
     background-color: #4094ef;
   }
+
+  .post-loader-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loader {
+    height: 24px;
+  }
+  .stories-loader-container {
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -78,6 +95,20 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+  }
+  .loader {
+    height: 36px;
+  }
+  .post-loader-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stories-loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .insta-stories-container {
     display: flex;

@@ -1,11 +1,11 @@
 import {BsGrid3X3} from 'react-icons/bs'
 import {BiCamera} from 'react-icons/bi'
+import Popup from 'reactjs-popup'
 import './index.css'
 
 const ProfileItems = props => {
   const {userDetails, postsList, storiesList, myprofileAlt} = props
   const {
-    id,
     userId,
     userName,
     profilePic,
@@ -95,11 +95,24 @@ const ProfileItems = props => {
         <ul className="user-post-list-container">
           {postsList.map(eachPost => (
             <li className="user-post-item" key={eachPost.id}>
-              <img
-                src={eachPost.image}
-                alt={userpostAlt}
-                className="user-post-image"
-              />
+              <Popup
+                modal
+                trigger={
+                  <img
+                    src={eachPost.image}
+                    alt={userpostAlt}
+                    className="user-post-image"
+                  />
+                }
+              >
+                <div className="show-post-container">
+                  <img
+                    src={eachPost.image}
+                    alt={userpostAlt}
+                    className="popup-post-image"
+                  />
+                </div>
+              </Popup>
             </li>
           ))}
         </ul>

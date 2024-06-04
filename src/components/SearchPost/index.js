@@ -140,7 +140,11 @@ class SearchPost extends Component {
           <div className="search-container">
             <ul className="search-list-container">
               {serachPostList.map(eachPost => (
-                <PostItem post={eachPost} key={eachPost.postId} />
+                <PostItem
+                  post={eachPost}
+                  key={eachPost.postId}
+                  showSearchPostItemStyle="searchPost"
+                />
               ))}
             </ul>
           </div>
