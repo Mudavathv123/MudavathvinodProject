@@ -46,14 +46,15 @@ const PostItem = props => {
         return (
           <li className={postItemClassName}>
             <div className="profile-logo-container">
+              <img
+                src={profilePic}
+                alt="post author profile"
+                className="profile_image"
+              />
+
               <Link to={`/users/${userId}`}>
-                <img
-                  src={profilePic}
-                  alt="post author profile"
-                  className="profile_image"
-                />
+                <p className="profile_name">{userName}</p>
               </Link>
-              <p className="profile_name">{userName}</p>
             </div>
             <img src={imageUrl} alt="post" className={postImgClassName} />
             <div className="post-description">
@@ -98,9 +99,9 @@ const PostItem = props => {
               <p className="bold-text">{likesCount}</p>
               <p className="caption">{caption}</p>
               {comments.map(eachComment => (
-                <p className="comment" key={eachComment.userId}>
-                  <span className="bold-text">{eachComment.userName}</span>
-                  {eachComment.comment}
+                <p className="bold-text" key={eachComment.userId}>
+                  {eachComment.userName}
+                  <span className="comment">{eachComment.comment}</span>
                 </p>
               ))}
               <p className="posted-time">{createdAt}</p>

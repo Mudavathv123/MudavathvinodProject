@@ -10,35 +10,19 @@ import ProtectedRoute from './components/ProtectedRoute'
 import SearchCaptionContext from './context/SearchCaptionContext'
 
 class App extends Component {
-  state = {searchCaptionValue: '', searchPostView: false, activeTab: 'Home'}
-
-  changeSeacrhCaptionValue = value => {
-    this.setState({searchCaptionValue: value, searchPostView: false})
-  }
-
-  searchCaption = () => {
-    this.setState({searchPostView: true})
-  }
-
-  renderToHome = () => {
-    this.setState({searchPostView: false})
-  }
+  state = {activeTab: 'Home'}
 
   changeActiveTab = tab => {
     this.setState({activeTab: tab})
   }
 
   render() {
-    const {searchCaptionValue, searchPostView, activeTab} = this.state
+    const {activeTab} = this.state
     return (
       <SearchCaptionContext.Provider
         value={{
-          searchCaptionValue,
-          searchPostView,
           activeTab,
           renderToHome: this.renderToHome,
-          changeSeacrhCaptionValue: this.changeSeacrhCaptionValue,
-          searchCaption: this.searchCaption,
           changeActiveTab: this.changeActiveTab,
         }}
       >

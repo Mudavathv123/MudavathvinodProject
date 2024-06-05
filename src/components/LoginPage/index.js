@@ -10,6 +10,8 @@ class LoginPage extends Component {
     console.log(jwtToken)
     Cookies.set('jwt_token', jwtToken, {expires: 30})
     this.setState({showErrorMsg: false})
+    const {history} = this.props
+    history.replace('/')
   }
 
   getAuthentication = async () => {
@@ -79,7 +81,7 @@ class LoginPage extends Component {
               />
             </div>
             <div className="input-container">
-              <label htmlFor="password">USERNAME</label>
+              <label htmlFor="password">PASSWORD</label>
               <input
                 type="password"
                 id="password"

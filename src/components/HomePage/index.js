@@ -21,11 +21,21 @@ class HomePage extends Component {
     storyApiStatus: constApiStoriesStatus.initial,
     postDetailsList: [],
     postsApiStatus: constApiStoriesStatus.initial,
+    searchInput: '',
+    searchPostView: false,
   }
 
   componentDidMount() {
     this.getUserApiStories()
     this.getPostApiInformations()
+  }
+
+  changeSeacrhCaptionValue = value => {
+    this.setState({searchInput: value, searchPostView: false})
+  }
+
+  searchCaption = () => {
+    this.setState({searchPostView: true})
   }
 
   getUserApiStories = async () => {
@@ -59,9 +69,8 @@ class HomePage extends Component {
   }
 
   changeLikeToUnlike = async postId => {
-    console.log('AaA2')
     const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
-    const post = {like_status: true}
+    const post = {like_status: false}
     const jwtToken = Cookies.get('jwt_token')
     const option = {
       method: 'POST',
@@ -87,9 +96,8 @@ class HomePage extends Component {
   }
 
   changeUnlikeToLike = async postId => {
-    console.log('AaA1')
     const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
-    const post = {like_status: false}
+    const post = {like_status: true}
     const jwtToken = Cookies.get('jwt_token')
     const option = {
       method: 'POST',
@@ -117,10 +125,10 @@ class HomePage extends Component {
   getStoryItems = () => {
     const {storiesList} = this.state
     return storiesList.map(eachStory => (
-      <div className="story-item" key={eachStory.userId}>
+      <li className="story-item" key={eachStory.userId}>
         <img src={eachStory.storyUrl} alt="user story" className="story-img" />
         <p className="user-name">{eachStory.userName}</p>
-      </div>
+      </li>
     ))
   }
 
@@ -157,9 +165,11 @@ class HomePage extends Component {
     }
 
     return (
-      <Slider {...settings} className="insta-stories-container">
-        {this.getStoryItems()}
-      </Slider>
+      <ul>
+        <Slider {...settings} className="insta-stories-container">
+          {this.getStoryItems()}
+        </Slider>
+      </ul>
     )
   }
 
@@ -170,6 +180,8 @@ class HomePage extends Component {
         return this.getStoriesLoaderView()
       case constApiStoriesStatus.success:
         return this.getStoriesSuccessView()
+      case constApiStoriesStatus.failure:
+        return this.getStoriesFailureView()
       default:
         return null
     }
@@ -225,6 +237,10 @@ class HomePage extends Component {
     this.getPostApiInformations()
   }
 
+  onClickStoriesTryAgain = () => {
+    this.getUserApiStories()
+  }
+
   getStoriesLoaderView = () => (
     <div className="stories-loader-container" data-testid="loader">
       <Loader
@@ -267,11 +283,29 @@ class HomePage extends Component {
     )
   }
 
+  getStoriesFailureView = () => (
+    <div className="post-failure-container">
+      <img
+        src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1717263356/MyMiniProjectsImages/z4pyf3ixv23dmyuu03by.png"
+        alt="failure view"
+        className="failure-img"
+      />
+      <p className="failure-msg">Something went wrong. Please try again</p>
+      <button
+        type="button"
+        className="try-again-btn"
+        onClick={this.onClickStoriesTryAgain}
+      >
+        Try again
+      </button>
+    </div>
+  )
+
   getPostFailureView = () => (
     <div className="post-failure-container">
       <img
         src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1717263356/MyMiniProjectsImages/z4pyf3ixv23dmyuu03by.png"
-        alt="home failure"
+        alt="failure view"
         className="failure-img"
       />
       <p className="failure-msg">Something went wrong. Please try again</p>
@@ -300,29 +334,25 @@ class HomePage extends Component {
   }
 
   render() {
+    const {searchInput, searchPostView} = this.state
     return (
-      <SearchCaptionContext.Consumer>
-        {value => {
-          const {searchCaptionValue, searchPostView} = value
-          console.log(searchCaptionValue)
-          console.log(searchPostView)
-
-          return (
-            <>
-              <Header />
-              {searchPostView ? (
-                <SearchPost searchCaptionValue={searchCaptionValue} />
-              ) : (
-                <div className="home-page-container">
-                  {this.getFilterStoriesViews()}
-                  <hr />
-                  {this.getFilterPostView()}
-                </div>
-              )}
-            </>
-          )
-        }}
-      </SearchCaptionContext.Consumer>
+      <>
+        <Header
+          changeSeacrhCaptionValue={this.changeSeacrhCaptionValue}
+          searchInput={searchInput}
+          searchPostView={searchPostView}
+          searchCaption={this.searchCaption}
+        />
+        {searchPostView ? (
+          <SearchPost searchCaptionValue={searchInput} />
+        ) : (
+          <div className="home-page-container">
+            {this.getFilterStoriesViews()}
+            <hr />
+            {this.getFilterPostView()}
+          </div>
+        )}
+      </>
     )
   }
 }

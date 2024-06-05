@@ -96,7 +96,7 @@ class MyProfilePage extends Component {
     <div className="user-profile-post-failure-container">
       <img
         src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1717263356/MyMiniProjectsImages/z4pyf3ixv23dmyuu03by.png"
-        alt="home failure"
+        alt="failure view"
         className="failure-img"
       />
       <p className="failure-msg">Something went wrong. Please try again</p>

@@ -1,10 +1,13 @@
 import {BsGrid3X3} from 'react-icons/bs'
 import {BiCamera} from 'react-icons/bi'
-import Popup from 'reactjs-popup'
 import './index.css'
 
 const ProfileItems = props => {
   const {userDetails, postsList, storiesList, myprofileAlt} = props
+  console.log(userDetails)
+  console.log(postsList)
+  console.log(storiesList)
+  console.log(myprofileAlt)
   const {
     userId,
     userName,
@@ -16,9 +19,9 @@ const ProfileItems = props => {
   } = userDetails
 
   const profileAlt =
-    myprofileAlt === 'myprofile' ? 'user profile' : 'my profile'
-  const mystoryAlt = myprofileAlt === 'myprofile' ? 'user story' : 'my story'
-  const userpostAlt = myprofileAlt === 'myprofile' ? 'user post' : 'my post'
+    myprofileAlt === 'myprofile' ? 'my profile' : 'user profile'
+  const mystoryAlt = myprofileAlt === 'myprofile' ? 'my story' : 'user story'
+  const userpostAlt = myprofileAlt === 'myprofile' ? 'my post' : 'user post'
 
   return (
     <div className="profile-items-container">
@@ -26,7 +29,7 @@ const ProfileItems = props => {
         <div className="max-device-profile-container">
           <div className="user-profile-container">
             <div className="user-profile-image-container">
-              <h1 className="user-id">{userId}</h1>
+              <p className="user-id">{userId}</p>
               <img
                 src={profilePic}
                 alt={profileAlt}
@@ -36,16 +39,16 @@ const ProfileItems = props => {
             </div>
             <ul className="followers-list-container">
               <li className="followers-item-container">
-                <p className="post-count">{postsCount}</p>
-                <p className="posts">posts</p>
+                {postsCount}
+                <span className="posts">posts</span>
               </li>
               <li className="followers-item-container">
-                <p className="post-count">{followersCount}</p>
-                <p className="posts">followers</p>
+                {followersCount}
+                <span className="posts">followers</span>
               </li>
               <li className="followers-item-container">
-                <p className="post-count">{followingCount}</p>
-                <p className="posts">following</p>
+                {followingCount}
+                <span className="posts">following</span>
               </li>
             </ul>
           </div>
@@ -58,16 +61,16 @@ const ProfileItems = props => {
             <h1 className="min-username">{userName}</h1>
             <ul className="followers-list-container">
               <li className="followers-item-container">
-                <p className="post-count">{postsCount}</p>
-                <p className="posts">posts</p>
+                {postsCount}
+                <span className="posts">posts</span>
               </li>
               <li className="followers-item-container">
-                <p className="post-count">{followersCount}</p>
-                <p className="posts">followers</p>
+                {followersCount}
+                <span className="posts">followers</span>
               </li>
               <li className="followers-item-container">
-                <p className="post-count">{followingCount}</p>
-                <p className="posts">following</p>
+                {followingCount}
+                <span className="posts">following</span>
               </li>
             </ul>
             <h1 className="min-user-id">{userId}</h1>
@@ -87,43 +90,27 @@ const ProfileItems = props => {
         </ul>
       </div>
       <hr />
-      <p className="post-grid">
+      <h1 className="post-grid">
         <BsGrid3X3 size="20" />
         Posts
-      </p>
-      {postsList.length > 0 ? (
-        <ul className="user-post-list-container">
-          {postsList.map(eachPost => (
+      </h1>
+
+      <ul className="user-post-list-container">
+        {postsList.length > 0 ? (
+          postsList.map(eachPost => (
             <li className="user-post-item" key={eachPost.id}>
-              <Popup
-                modal
-                trigger={
-                  <img
-                    src={eachPost.image}
-                    alt={userpostAlt}
-                    className="user-post-image"
-                  />
-                }
-              >
-                <div className="show-post-container">
-                  <img
-                    src={eachPost.image}
-                    alt={userpostAlt}
-                    className="popup-post-image"
-                  />
-                </div>
-              </Popup>
+              <img src={eachPost.image} alt={userpostAlt} />
             </li>
-          ))}
-        </ul>
-      ) : (
-        <div className="no-post-yet-container">
-          <div className="no-post-yet">
-            <BiCamera size="26" className="bi-camera" />
+          ))
+        ) : (
+          <div className="no-post-yet-container">
+            <div className="no-post-yet">
+              <BiCamera size="26" className="bi-camera" />
+            </div>
+            <h1 className="no-post-yet-text">No Posts</h1>
           </div>
-          <p className="no-post-yet-text">No Posts Yet</p>
-        </div>
-      )}
+        )}
+      </ul>
     </div>
   )
 }

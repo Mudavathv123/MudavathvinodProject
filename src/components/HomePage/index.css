@@ -118,6 +118,8 @@
     margin-top: 20px;
     padding: 20px;
     max-width: 1040px;
+    list-style-type: none;
+    padding-left: 0px;
   }
   .story-item {
     display: flex;

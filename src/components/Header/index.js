@@ -16,33 +16,29 @@ class Header extends Component {
     this.setState({showMenu: false})
   }
 
+  onClickSearchButton = () => {
+    const {searchCaption} = this.props
+    searchCaption()
+  }
+
+  onChangeSearchCaption = event => {
+    const {changeSeacrhCaptionValue} = this.props
+    changeSeacrhCaptionValue(event.target.value)
+  }
+
   render() {
     const {showMenu, showMaxSearch} = this.state
+    const {searchInput} = this.props
     return (
       <SearchCaptionContext.Consumer>
         {value => {
-          const {
-            searchCaptionValue,
-            changeSeacrhCaptionValue,
-            searchCaption,
-            renderToHome,
-            activeTab,
-            changeActiveTab,
-          } = value
+          const {renderToHome, activeTab, changeActiveTab} = value
 
           const clickToLogout = () => {
             const {history} = this.props
             Cookies.remove('jwt_token')
             history.replace('/login')
             changeActiveTab('Home')
-          }
-
-          const onClickSearchButton = () => {
-            searchCaption()
-          }
-
-          const onChangeSearchCaption = event => {
-            changeSeacrhCaptionValue(event.target.value)
           }
 
           const clickToRender = () => {
@@ -59,8 +55,7 @@ class Header extends Component {
 
           const onClickToSearch = () => {
             changeActiveTab('Search')
-            if (activeTab === 'Home')
-              this.setState({showMaxSearch: true, showMenu: false})
+            this.setState({showMaxSearch: true, showMenu: false})
           }
 
           const activeTabHomeColor =
@@ -103,15 +98,15 @@ class Header extends Component {
                       type="search"
                       placeholder="Search Caption"
                       className="search-input"
-                      onChange={onChangeSearchCaption}
-                      value={searchCaptionValue}
+                      onChange={this.onChangeSearchCaption}
+                      value={searchInput}
                     />
                     <button
+                      data-testid="searchIcon"
                       type="button"
                       className="search-btn"
                       aria-label="search"
-                      data-testid="searchIcon"
-                      onClick={onClickSearchButton}
+                      onClick={this.onClickSearchButton}
                     >
                       <FaSearch size="10" />
                     </button>
@@ -190,15 +185,15 @@ class Header extends Component {
                     type="search"
                     placeholder="Search Caption"
                     className="search-input"
-                    onChange={onChangeSearchCaption}
-                    value={searchCaptionValue}
+                    onChange={this.onChangeSearchCaption}
+                    value={searchInput}
                   />
                   <button
                     type="button"
                     className="search-btn"
                     aria-label="search"
                     data-testid="searchIcon"
-                    onClick={onClickSearchButton}
+                    onClick={this.onClickSearchButton}
                   >
                     <FaSearch size="10" />
                   </button>
