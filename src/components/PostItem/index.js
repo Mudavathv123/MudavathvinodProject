@@ -22,6 +22,14 @@ const PostItem = props => {
 
   const {imageUrl, caption} = postDetails
 
+  console.log(likeStatus)
+
+  const v = likeStatus ? 'unLikeIcon' : 'likeIcon'
+  console.log(v)
+
+  const likeBtn = likeStatus ? <FcLike size="20" /> : <BsHeart size="18" />
+  const dataTestId = likeStatus ? 'unLikeIcon' : 'likeIcon'
+
   const postItemClassName =
     showSearchPostItemStyle === 'searchPost'
       ? 'search-post-item-container'
@@ -59,27 +67,15 @@ const PostItem = props => {
             <img src={imageUrl} alt="post" className={postImgClassName} />
             <div className="post-description">
               <div className="likes-container">
-                {likeStatus ? (
-                  <button
-                    className="likes-btn"
-                    type="button"
-                    aria-label="heartBtn"
-                    data-testid="unLikeIcon"
-                    onClick={clickToUnLike}
-                  >
-                    <FcLike size="20" />
-                  </button>
-                ) : (
-                  <button
-                    className="likes-btn"
-                    type="button"
-                    aria-label="heartBtn"
-                    data-testid="likeIcon"
-                    onClick={clickToLike}
-                  >
-                    <BsHeart size="18" />
-                  </button>
-                )}
+                <button
+                  className="likes-btn"
+                  type="button"
+                  aria-label="heartBtn"
+                  data-testid={dataTestId}
+                  onClick={likeStatus ? clickToUnLike : clickToLike}
+                >
+                  {likeBtn}
+                </button>
 
                 <button
                   className="likes-btn"
@@ -99,10 +95,10 @@ const PostItem = props => {
               <p className="bold-text">{likesCount}</p>
               <p className="caption">{caption}</p>
               {comments.map(eachComment => (
-                <p className="bold-text" key={eachComment.userId}>
+                <span className="bold-text" key={eachComment.userId}>
                   {eachComment.userName}
-                  <span className="comment">{eachComment.comment}</span>
-                </p>
+                  <p className="comment"> {eachComment.comment}</p>
+                </span>
               ))}
               <p className="posted-time">{createdAt}</p>
             </div>

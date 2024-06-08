@@ -71,8 +71,10 @@ class MyProfilePage extends Component {
   }
 
   getLoaderView = () => (
-    <div className="user-profile-loader" data-testid="loader">
-      <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
+    <div className="user-profile-loader">
+      <div className="loader-container" data-testid="loader">
+        <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
+      </div>
     </div>
   )
 
@@ -83,7 +85,7 @@ class MyProfilePage extends Component {
         userDetails={myProfileInfo}
         postsList={postsList}
         storiesList={storiesList}
-        myprofileAlt="myprofile"
+        profileOwner="my"
       />
     )
   }

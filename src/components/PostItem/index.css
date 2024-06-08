@@ -49,6 +49,9 @@
     font-weight: 500;
     line-height: 16px;
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .comment {
@@ -136,6 +139,9 @@
     font-weight: 500;
     line-height: 16px;
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .comment {

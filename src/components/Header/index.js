@@ -16,23 +16,31 @@ class Header extends Component {
     this.setState({showMenu: false})
   }
 
-  onClickSearchButton = () => {
-    const {searchCaption} = this.props
-    searchCaption()
-  }
-
-  onChangeSearchCaption = event => {
-    const {changeSeacrhCaptionValue} = this.props
-    changeSeacrhCaptionValue(event.target.value)
-  }
-
   render() {
     const {showMenu, showMaxSearch} = this.state
-    const {searchInput} = this.props
     return (
       <SearchCaptionContext.Consumer>
         {value => {
-          const {renderToHome, activeTab, changeActiveTab} = value
+          const {
+            activeTab,
+            changeActiveTab,
+            changeSeacrhCaptionValue,
+            searchInput,
+            searchCaption,
+            renderToHome,
+          } = value
+
+          const clickToRender = () => {
+            renderToHome()
+          }
+
+          const onChangeSearchCaption = event => {
+            changeSeacrhCaptionValue(event.target.value)
+          }
+
+          const onClickSearchButton = () => {
+            searchCaption()
+          }
 
           const clickToLogout = () => {
             const {history} = this.props
@@ -41,12 +49,9 @@ class Header extends Component {
             changeActiveTab('Home')
           }
 
-          const clickToRender = () => {
-            renderToHome()
-          }
-
           const onClickToHome = () => {
             changeActiveTab('Home')
+            renderToHome()
           }
 
           const onClickToProfile = () => {
@@ -71,11 +76,12 @@ class Header extends Component {
             <>
               <div className="header-container">
                 <div className="header-logo-container">
-                  <Link to="/" onClick={clickToRender}>
+                  <Link to="/">
                     <img
                       src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1717234247/MyMiniProjectsImages/vzpewib6xu0gzldqpy75.png"
                       alt="website logo"
                       className="header-logo"
+                      onClick={clickToRender}
                     />
                   </Link>
                   <h1 className="header-app-name">Insta Share</h1>
@@ -98,7 +104,7 @@ class Header extends Component {
                       type="search"
                       placeholder="Search Caption"
                       className="search-input"
-                      onChange={this.onChangeSearchCaption}
+                      onChange={onChangeSearchCaption}
                       value={searchInput}
                     />
                     <button
@@ -106,13 +112,13 @@ class Header extends Component {
                       type="button"
                       className="search-btn"
                       aria-label="search"
-                      onClick={this.onClickSearchButton}
+                      onClick={onClickSearchButton}
                     >
                       <FaSearch size="10" />
                     </button>
                   </div>
                   <ul className="nav-links-container">
-                    <Link to="/" className="link-style" onClick={clickToRender}>
+                    <Link to="/" className="link-style">
                       <li
                         className={activeTabHomeColor}
                         onClick={onClickToHome}
@@ -140,7 +146,7 @@ class Header extends Component {
               </div>
               {showMenu && (
                 <ul className="max-divice-navbar">
-                  <Link to="/" className="link-style" onClick={clickToRender}>
+                  <Link to="/" className="link-style">
                     <li className={activeTabHomeColor} onClick={onClickToHome}>
                       Home
                     </li>
@@ -185,7 +191,7 @@ class Header extends Component {
                     type="search"
                     placeholder="Search Caption"
                     className="search-input"
-                    onChange={this.onChangeSearchCaption}
+                    onChange={onChangeSearchCaption}
                     value={searchInput}
                   />
                   <button
@@ -193,7 +199,7 @@ class Header extends Component {
                     className="search-btn"
                     aria-label="search"
                     data-testid="searchIcon"
-                    onClick={this.onClickSearchButton}
+                    onClick={onClickSearchButton}
                   >
                     <FaSearch size="10" />
                   </button>

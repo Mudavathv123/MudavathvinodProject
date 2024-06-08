@@ -63,10 +63,10 @@ class SearchPost extends Component {
     }
   }
 
-  changeLikeToUnlike = async postId => {
-    console.log('AaA2')
+  toggleLike = async (postId, likeStatus) => {
     const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
-    const post = {like_status: true}
+    const post = {like_status: likeStatus}
+    console.log(`changeLikeToUnlike ${post.like_status}`)
     const jwtToken = Cookies.get('jwt_token')
     const option = {
       method: 'POST',
@@ -77,51 +77,44 @@ class SearchPost extends Component {
     }
 
     await fetch(postlikeApiUrl, option)
-    this.setState(prevState => ({
-      serachPostList: prevState.serachPostList.map(eachPost => {
-        if (eachPost.postId === postId) {
-          return {
-            ...eachPost,
-            likesCount: eachPost.likesCount - 1,
-            likeStatus: !eachPost.likeStatus,
+    if (post.like_status) {
+      this.setState(prevState => ({
+        serachPostList: prevState.serachPostList.map(eachPost => {
+          if (eachPost.postId === postId) {
+            return {
+              ...eachPost,
+              likesCount: eachPost.likesCount + 1,
+              likeStatus: !eachPost.likeStatus,
+            }
           }
-        }
-        return eachPost
-      }),
-    }))
-  }
-
-  changeUnlikeToLike = async postId => {
-    console.log('AaA1')
-    const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
-    const post = {like_status: false}
-    const jwtToken = Cookies.get('jwt_token')
-    const option = {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
-      body: JSON.stringify(post),
+          return eachPost
+        }),
+      }))
+    } else {
+      this.setState(prevState => ({
+        serachPostList: prevState.serachPostList.map(eachPost => {
+          if (eachPost.postId === postId) {
+            return {
+              ...eachPost,
+              likesCount: eachPost.likesCount - 1,
+              likeStatus: !eachPost.likeStatus,
+            }
+          }
+          return eachPost
+        }),
+      }))
     }
-
-    await fetch(postlikeApiUrl, option)
-    this.setState(prevState => ({
-      serachPostList: prevState.serachPostList.map(eachPost => {
-        if (eachPost.postId === postId) {
-          return {
-            ...eachPost,
-            likesCount: eachPost.likesCount + 1,
-            likeStatus: !eachPost.likeStatus,
-          }
-        }
-        return eachPost
-      }),
-    }))
   }
+
+  changeLikeToUnlike = postId => this.toggleLike(postId, false)
+
+  changeUnlikeToLike = postId => this.toggleLike(postId, true)
 
   getLoaderView = () => (
-    <div className="user-profile-loader" data-testid="loader">
-      <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
+    <div className="user-profile-loader">
+      <div className="loader-container" data-testid="loader">
+        <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
+      </div>
     </div>
   )
 

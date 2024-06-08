@@ -8,14 +8,13 @@
 
   .user-profile-container {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
   }
 
   .user-profile-image-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
     align-items: center;
   }
   .user-id {
@@ -41,6 +40,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: left;
     gap: 20px;
   }
 
@@ -145,11 +145,17 @@
       10px 10px 20px #262626,
       -10px -10px 20px #262626;
   }
+
+  .min-profile-image {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .max-device-profile-container {
-    display: none;
+  .profile-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
   }
   .user-profile-top-section {
     padding: 24px;
@@ -157,32 +163,40 @@
 
   .user-profile-container {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
   }
 
   .user-profile-image-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    order: 1;
+    gap: 0px;
   }
-  .min-user-id {
+  .user-id {
     font-family: 'Roboto';
     font-size: 16px;
     font-weight: 500;
     color: #262626;
+    order: 2;
   }
   .profile-image {
+    display: none;
+  }
+  .min-profile-image {
     width: 180px;
     height: 180px;
+    left: 200px;
+    gap: 0px;
     border-radius: 90px;
   }
-  .min-username {
+
+  .username {
     font-family: 'Roboto';
     font-size: 32px;
     font-weight: 300;
     color: #262626;
+    order: 0;
   }
 
   .followers-list-container {
@@ -216,6 +230,7 @@
     font-family: 'Roboto';
     font-size: 16px;
     font-weight: 400;
+    order: 3;
   }
 
   .stories-list-container {
@@ -292,14 +307,5 @@
     display: flex;
     align-items: center;
     gap: 40px;
-  }
-
-  .popup-post-image {
-    width: 660px;
-    height: 660px;
-    border-radius: 8px;
-    box-shadow:
-      10px 10px 20px #262626,
-      -10px -10px 20px #262626;
   }
 }

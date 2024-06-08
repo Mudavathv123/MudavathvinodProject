@@ -6,8 +6,12 @@ const SearchCaptionContext = React.createContext({
   changeActiveTab: () => {},
   changeLikeToUnlike: () => {},
   changeUnlikeToLike: () => {},
-  renderToHome: () => {},
   getSearchInfromation: () => {},
+  changeSeacrhCaptionValue: () => {},
+  searchInput: '',
+  searchPostView: false,
+  searchCaption: () => {},
+  renderToHome: () => {},
 })
 
 export default SearchCaptionContext

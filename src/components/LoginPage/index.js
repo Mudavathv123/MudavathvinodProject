@@ -7,7 +7,6 @@ class LoginPage extends Component {
   state = {showErrorMsg: false, errorMsg: '', username: '', password: ''}
 
   onSuccess = jwtToken => {
-    console.log(jwtToken)
     Cookies.set('jwt_token', jwtToken, {expires: 30})
     this.setState({showErrorMsg: false})
     const {history} = this.props
@@ -25,8 +24,7 @@ class LoginPage extends Component {
 
     const response = await fetch(loginUrl, options)
     const data = await response.json()
-    console.log(response)
-    console.log(data)
+
     if (response.ok) {
       this.onSuccess(data.jwt_token)
     } else {

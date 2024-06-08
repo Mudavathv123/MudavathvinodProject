@@ -21,21 +21,11 @@ class HomePage extends Component {
     storyApiStatus: constApiStoriesStatus.initial,
     postDetailsList: [],
     postsApiStatus: constApiStoriesStatus.initial,
-    searchInput: '',
-    searchPostView: false,
   }
 
   componentDidMount() {
     this.getUserApiStories()
     this.getPostApiInformations()
-  }
-
-  changeSeacrhCaptionValue = value => {
-    this.setState({searchInput: value, searchPostView: false})
-  }
-
-  searchCaption = () => {
-    this.setState({searchPostView: true})
   }
 
   getUserApiStories = async () => {
@@ -51,8 +41,6 @@ class HomePage extends Component {
 
     const response = await fetch(userApiStoriesUrl, options)
     const data = await response.json()
-    console.log(response)
-    console.log(data)
     if (response.ok) {
       const updatedSotriesList = data.users_stories.map(eachStory => ({
         userName: eachStory.user_name,
@@ -68,9 +56,11 @@ class HomePage extends Component {
     }
   }
 
-  changeLikeToUnlike = async postId => {
+  toggleLike = async (postId, likeStatus) => {
     const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
-    const post = {like_status: false}
+
+    const post = {like_status: likeStatus}
+    console.log(`changeLikeToUnlike ${post.like_status}`)
     const jwtToken = Cookies.get('jwt_token')
     const option = {
       method: 'POST',
@@ -81,46 +71,38 @@ class HomePage extends Component {
     }
 
     await fetch(postlikeApiUrl, option)
-    this.setState(prevState => ({
-      postDetailsList: prevState.postDetailsList.map(eachPost => {
-        if (eachPost.postId === postId) {
-          return {
-            ...eachPost,
-            likesCount: eachPost.likesCount - 1,
-            likeStatus: !eachPost.likeStatus,
+    if (post.like_status) {
+      this.setState(prevState => ({
+        postDetailsList: prevState.postDetailsList.map(eachPost => {
+          if (eachPost.postId === postId) {
+            return {
+              ...eachPost,
+              likesCount: eachPost.likesCount + 1,
+              likeStatus: !eachPost.likeStatus,
+            }
           }
-        }
-        return eachPost
-      }),
-    }))
-  }
-
-  changeUnlikeToLike = async postId => {
-    const postlikeApiUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
-    const post = {like_status: true}
-    const jwtToken = Cookies.get('jwt_token')
-    const option = {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
-      body: JSON.stringify(post),
+          return eachPost
+        }),
+      }))
+    } else {
+      this.setState(prevState => ({
+        postDetailsList: prevState.postDetailsList.map(eachPost => {
+          if (eachPost.postId === postId) {
+            return {
+              ...eachPost,
+              likesCount: eachPost.likesCount - 1,
+              likeStatus: !eachPost.likeStatus,
+            }
+          }
+          return eachPost
+        }),
+      }))
     }
-
-    await fetch(postlikeApiUrl, option)
-    this.setState(prevState => ({
-      postDetailsList: prevState.postDetailsList.map(eachPost => {
-        if (eachPost.postId === postId) {
-          return {
-            ...eachPost,
-            likesCount: eachPost.likesCount + 1,
-            likeStatus: !eachPost.likeStatus,
-          }
-        }
-        return eachPost
-      }),
-    }))
   }
+
+  changeLikeToUnlike = postId => this.toggleLike(postId, false)
+
+  changeUnlikeToLike = postId => this.toggleLike(postId, true)
 
   getStoryItems = () => {
     const {storiesList} = this.state
@@ -334,24 +316,24 @@ class HomePage extends Component {
   }
 
   render() {
-    const {searchInput, searchPostView} = this.state
     return (
       <>
-        <Header
-          changeSeacrhCaptionValue={this.changeSeacrhCaptionValue}
-          searchInput={searchInput}
-          searchPostView={searchPostView}
-          searchCaption={this.searchCaption}
-        />
-        {searchPostView ? (
-          <SearchPost searchCaptionValue={searchInput} />
-        ) : (
-          <div className="home-page-container">
-            {this.getFilterStoriesViews()}
-            <hr />
-            {this.getFilterPostView()}
-          </div>
-        )}
+        <Header />
+        <SearchCaptionContext.Consumer>
+          {value => {
+            const {searchInput, searchPostView} = value
+
+            return searchPostView ? (
+              <SearchPost searchCaptionValue={searchInput} />
+            ) : (
+              <div className="home-page-container">
+                {this.getFilterStoriesViews()}
+                <hr />
+                {this.getFilterPostView()}
+              </div>
+            )
+          }}
+        </SearchCaptionContext.Consumer>
       </>
     )
   }
