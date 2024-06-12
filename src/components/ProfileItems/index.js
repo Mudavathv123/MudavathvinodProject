@@ -60,7 +60,6 @@ const ProfileItems = props => {
       />
       <div className="user-profile-container">
         <p className="user-id">{userId}</p>
-
         <div className="user-profile-image-container">
           <img
             src={profilePic}
