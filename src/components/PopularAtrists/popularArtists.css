@@ -1,0 +1,120 @@
+
+
+.popular-artists-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popular-artist-head {
+    font-size: 24px;
+    color: #fff;
+    font-family: Sans-serif;
+}
+
+.showall-link {
+    font-size: 14px;
+    color: #b5b5b5d8;
+    font-weight: 600;
+    font-family: Sans-serif;
+}
+
+.artist-img {
+    height: 140px;
+    width: 140px;
+    border-radius: 70px;
+    background-color: transparent;
+}
+
+.artist-name {
+    font-size: 16px;
+    font-family: Sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+.artist {
+    font-size: 14px;
+    font-weight: 600;
+    color: #716f6ff2;
+    font-family: Sans-serif;
+}
+
+.artists-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap:8px;
+    padding: 10px;
+    transition: .3s ease-out;
+}
+
+.popular-artists-list-container {
+    display: flex;
+    align-items: center;
+    gap:20px;
+    padding-left: 20px;
+    max-width: 75vw;
+    overflow: hidden;
+}
+
+.popular-artist-failure-view-container {
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}
+
+.artist-notfound-img {
+    height: 140px;
+}
+
+.notfound-head {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff8e;
+}
+
+.popular-artist-loading-view {
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.play-artist-img {
+    height: 42px;
+    border-radius: 48px;
+}
+
+.play-artist-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    bottom: 50px;
+    left: 80px;
+    display: none;
+}
+
+.artists-card-container:hover {
+    background-color: #2d2727e4;
+    border-radius: 8px;
+    .play-artist-btn {
+        display: block;
+    }
+}
+
+.link-to-show-section {
+    text-decoration: none;
+    font-size: 14px;
+    color: #5e5a5ae4;
+    font-weight: 600;
+    font-family: Sans-serif;
+}
+
+.play-artist-btn-container {
+  max-height: 140px;
+}

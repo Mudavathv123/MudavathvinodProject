@@ -1,0 +1,143 @@
+
+
+.show-all-artists-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.show-all-artists-head {
+    font-size: 24px;
+    color: #fff;
+    font-family: Sans-serif;
+}
+
+.show-all-artists-showall-link {
+    font-size: 14px;
+    color: #b5b5b5d8;
+    font-weight: 600;
+    font-family: Sans-serif;
+}
+
+.show-all-artists-img {
+    height: 140px;
+    width: 140px;
+    border-radius: 70px;
+    background-color: transparent;
+}
+
+.show-all-artists-name {
+    font-size: 16px;
+    font-family: Sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+.show-all-artists-artist {
+    font-size: 14px;
+    font-weight: 600;
+    color: #716f6ff2;
+    font-family: Sans-serif;
+}
+
+.show-all-artists-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap:8px;
+    padding: 12px;
+    transition: .3s ease-out;
+}
+
+.show-all-artists-list-container {
+    display: flex;
+    align-items: center;
+    gap:20px;
+    padding-left: 20px;
+    max-width: 75vw;
+   flex-wrap: wrap;
+}
+
+.show-all-artists-failure-view-container {
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}
+
+.show-all-artists-notfound-img {
+    height: 140px;
+}
+
+.show-all-artists-notfound-head {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff8e;
+}
+
+.show-all-artists-loading-view {
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.play-show-all-artists-img {
+    height: 48px;
+    border-radius: 48px;
+}
+
+.play-show-all-artists-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    bottom: 50px;
+    left: 80px;
+    display: none;
+}
+
+.show-all-artists-card-container:hover {
+    background-color: #2d2727e4;
+    border-radius: 8px;
+    .play-show-all-artists-btn {
+        display: block;
+    }
+}
+
+
+.show-all-artists-songs {
+    max-height: 81vh;
+   overflow: auto;
+}
+
+.show-all-artists-songs::-webkit-scrollbar {
+    width: 12px;
+    height: 4px;
+}
+
+.show-all-artists-songs::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.show-all-artists-songs::-webkit-scrollbar-thumb {
+    background: #c4c2c2a5;
+    border-radius: 10px;
+    
+}
+
+.show-all-artists-songs::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    opacity: 0.1;
+}
+
+.show-all-artists-songs::-webkit-scrollbar-corner {
+    background: #7e7e7e;
+}
+
+.play-show-all-artists-btn-container {
+    max-height: 140px;
+  }

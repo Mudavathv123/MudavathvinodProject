@@ -1,0 +1,38 @@
+.music-container {
+    width: 75vw;
+    border-radius: 16px;
+   
+   
+  }
+  .music-section-container {
+    padding: 20px;
+    max-height: 81vh;
+    overflow: auto;
+    box-sizing: border-box;
+    background:linear-gradient(to bottom, #3f3e3ee8,#131111d5);
+  }
+
+.music-section-container::-webkit-scrollbar {
+    width: 12px;
+    height: 4px;
+}
+
+.music-section-container::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.music-section-container::-webkit-scrollbar-thumb {
+    background: #c4c2c2a5;
+    border-radius: 10px;
+    
+}
+
+.music-section-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    opacity: 0.1;
+}
+
+.music-section-container::-webkit-scrollbar-corner {
+    background: #7e7e7e;
+}

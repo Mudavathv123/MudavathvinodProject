@@ -1,0 +1,148 @@
+
+.library {
+    display: flex;
+    align-items: center;
+    gap:10px;
+    color: #ffffffa7;
+    transition: .5s ease-in-out;
+}
+
+.library:hover {
+    color: #ffff !important;
+}
+
+.library-header {
+    font-size: 16px;
+    font-family: Sans-serif;
+    color: #ffffffa7;
+    transition: .5s ease-in-out;
+}
+.library-header:hover {
+    color: #ffff;
+}
+
+.your-library-container {
+    background-color: rgba(33, 19, 19, 0.938);
+    border-radius: 12px;
+    margin-top: 10px;
+}
+.library-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+
+.add-btn {
+    background-color: transparent;
+    border: none;
+    color: #ffffffa7;
+    font-family: Sans-serif;
+    transition: .2s ease-in;
+}
+
+.add-btn:hover {
+    color: #ffff;
+}
+
+.library-card-btn {
+    height: 32px;
+    width: 148px;
+    border-radius: 16px;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: Sans-serif;
+}
+
+.library-card-head {
+    font-size: 16px;
+    color: #ffffff;
+    font-family: Sans-serif;
+}
+
+.library-card-description {
+    font-size: 14px;
+    color: #ffffffd8;
+    font-family: Sans-serif;
+    
+}
+
+.library-card-container {
+    background-color: #474545dd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+.library-card {
+    list-style-type: none;
+    padding-left: 0px;
+    height: 220px;
+    overflow: auto;
+}
+
+/* style for scroll bar*/
+
+.library-card::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.library-card::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.library-card::-webkit-scrollbar-thumb {
+    background: #c4c2c2a5;
+    border-radius: 10px;
+    
+}
+
+.library-card::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    opacity: 0.1;
+}
+
+.library-card::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+}
+
+.your-library-footer-list {
+    list-style-type: none;
+    padding-left: 0px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap:20px;
+    flex-wrap: wrap;
+}
+
+.library-footer-list-items {
+    color: #f1eeeea8;
+    font-size: 12px;
+    font-family: Sans-serif;
+}
+
+.library-footer-btn {
+    background-color: transparent;
+    height: 32px;
+    width: 120px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Sans-serif;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #f1eeeeef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:8px;
+    border-radius: 16px;
+   margin: 20px;
+}

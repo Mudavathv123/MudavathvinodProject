@@ -1,0 +1,30 @@
+
+.add-description {
+    font-size: 14px;
+    font-family: Sans-serif;
+    color: #fff;
+}
+
+.ads-signup-btn {
+    font-size: 16px;
+    font-family: Sans-serif;
+    color: black;
+    border: none;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px;
+    outline: none;
+    cursor: pointer;
+    background-color: #fff;
+    height: 48px;
+    width: 160px;
+}
+
+.footer-add-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: linear-gradient(to right,#af13c7,#c30fdf,#2656d0,#5983f0);
+}

@@ -1,0 +1,8 @@
+
+.side-header-container {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}

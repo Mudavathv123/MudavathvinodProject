@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../spotifybackend"
+		},
+		{
+			"path": "../../../springbootproject"
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "xprotocol",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 33060,
+				"driver": "MySQL",
+				"name": "MySQL Locally",
+				"database": "mudavathdb",
+				"username": "mudavathvinod",
+				"password": "Indu@143",
+				"connectionTimeout": 30
+			}
+		],
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

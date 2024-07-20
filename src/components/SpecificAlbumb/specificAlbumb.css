@@ -1,0 +1,292 @@
+
+.head {
+    color: #fff;
+}
+
+.specific-albumb-container {
+   /* width: 95%; */
+   width: 75vw;
+   border-radius: 8px;
+   max-height: 94vh;
+}
+.specific-album-head-container {
+   
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.album-head-img {
+    height: 180px;
+    /* box-shadow: 10px 10px 10px #c5bb6f, -10px -10px 10px #c5bb6f; */
+    border-radius: 8px;
+}
+
+.albumb-heading {
+    font-size: 64px;
+   line-height: 12px;
+   color: #fff;
+   font-family: Sans-serif;
+}
+
+.album-type {
+
+    font-size: 16px;
+    line-height: 12px;
+    color: #fff;
+    font-family: Sans-serif;
+}
+
+.album-artist-name {
+    font-size: 16px;
+    line-height: 12px;
+    color: #fff;
+    font-family: Sans-serif;
+    font-weight: 600;
+}
+
+.release-date {
+    font-size: 16px;
+    line-height: 12px;
+    color: #fff;
+    font-family: Sans-serif;
+}
+
+.total-songs {
+    font-size: 16px;
+    line-height: 12px;
+    color: #fff;
+}
+
+.album-head-description-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style-type: disc;
+    color: #fff;
+    padding-left: 0px;
+}
+
+.albumb-duration-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    
+}
+
+.paly-icon {
+    display: none;
+}
+
+.song-list-head-container {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;   
+ padding-left: 20px;
+ padding-right: 90px;
+}
+
+.song-list-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+    padding-left: 20px;
+    padding-right: 90px;
+}
+
+.song-list-head-container:hover {
+    background-color: #2b2929;
+    border-radius: 8px;
+    .song-coresh {
+        color: #fff;
+    }
+    .row-number {
+        display: none;
+    }
+    .paly-icon {
+        display: block;
+        color: #fff;
+    }
+    .favarate-icon {
+        display: block;
+    }
+    .song-more-icon {
+       display: block;
+       color: #fff;
+    }
+}
+
+.favarate-icon {
+    display: none;
+    color: #979696f1;
+}
+
+.song-more-icon {
+    display: none;
+   
+}
+
+.favirote-icon-contaier {
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    gap: 20px;
+}
+
+.title-and-number-container {
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+
+.line {
+    margin-right: 30px;
+    list-style: none;
+    color: #4b4b4beb;
+}
+
+.row-number {
+    font-size: 14px;
+    color: #979696f1;
+    font-weight: 600;
+    font-family: Sans-serif;
+}
+
+.song-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Sans-serif;
+}
+
+.song-coresh {
+    color: #979696f1;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Sans-serif;
+    line-height: 0px;
+}
+
+.song-duration {
+    color: #979696f1;
+    font-size: 14px;
+    position: relative;
+    font-family: Sans-serif;
+}
+
+.title-head {
+    font-size: 14px;
+    color: #979696f1;
+    font-weight: 600;
+    font-family: Sans-serif;
+}
+
+.songs-playlist-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    /* margin-top: 10px; */
+    padding: 20px;
+}
+
+.play-all-btn {
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+}
+
+.playall-img {
+    height: 64px;
+    border-radius: 60%;
+}
+
+.list-filter-btn {
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap:6px;
+}
+
+.play-all-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.more-icon {
+    color: #8d8a8a;
+}
+
+.favirote-icon {
+    color: #8d8a8a;
+}
+
+.songs-container {
+   padding-top: 10px;
+}
+
+.scroll-albums-songs {
+    max-height: 81vh;
+   overflow: auto;
+}
+
+
+.scroll-albums-songs::-webkit-scrollbar {
+    width: 12px;
+    height: 4px;
+}
+
+.scroll-albums-songs::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.scroll-albums-songs::-webkit-scrollbar-thumb {
+    background: #c4c2c2a5;
+    border-radius: 10px;
+    
+}
+
+.scroll-albums-songs::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    opacity: 0.1;
+}
+
+.scroll-albums-songs::-webkit-scrollbar-corner {
+    background: #7e7e7e;
+}
+
+
+.specific-album-failure-view-container {
+    height: 80vh;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}
+
+.specific-album-notfound-img {
+    height: 300px;
+}
+
+.specific-album-notfound-head {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff8e;
+}
+
+.specific-album-loading-view {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

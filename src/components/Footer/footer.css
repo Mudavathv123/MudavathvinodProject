@@ -1,0 +1,76 @@
+
+.company-links {
+    list-style-type: none;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.footer-links-head {
+    font-size: 16px;
+    color: #fff;
+    font-family: Sans-serif;
+}
+
+.footer-link {
+    font-size: 14px;
+    color: #fff;
+    font-family: Sans-serif;
+    color: #555454;
+}
+
+.a-link {
+    font-size: 14px;
+    color: #fff;
+    font-family: Sans-serif;
+    color: #555454;
+    text-decoration: none;
+    transition: .5s ease-in-out;
+}
+
+.a-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.social-media-links {
+    display: flex;
+    align-items: center;
+    gap:20px;
+    list-style-type: none;
+}
+
+.social-link {
+    color: #fff;
+    background-color: #555454;
+}
+
+.footersocail-link {
+    height: 36px;
+    width: 36px;
+    border-radius: 36px;
+    background-color: #555454;
+    display: grid;
+    place-items: center;
+}
+
+.footer-container {
+    margin-top: 40px;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+}
+
+.application-develper-name {
+    display: flex;
+    align-items: center;
+    gap:6px;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 50px;
+    font-family: Sans-serif;
+}
+
+.line {
+    border:1px solid #4b4b4b;
+}
