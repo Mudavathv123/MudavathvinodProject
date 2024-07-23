@@ -28,5 +28,5 @@ CREATE TABLE IF NOT EXISTS songs(
     songcoresh VARCHAR(500),
     songduration VARCHAR(250),
     albumid INTEGER,
-    foreign key (albumid) references songs(albumid)
+    foreign key (albumid) references albums(albumid)
 );
