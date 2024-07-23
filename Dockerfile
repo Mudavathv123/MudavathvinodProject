@@ -1,5 +1,5 @@
 # Use a Maven image with JDK 11 to build the project
-FROM maven:3.8.1-openjdk-21 AS build
+FROM maven:3.8.1-openjdk-11 AS build
 
 # Set the working directory in the container
 WORKDIR /app
