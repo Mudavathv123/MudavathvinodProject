@@ -10,11 +10,14 @@ COPY . /app
 # Ensure Maven Wrapper script has executable permissions
 RUN chmod +x mvnw
 
-# Build the project (adjust the command if needed)
+# Build the project
 RUN ./mvnw clean package -DskipTests
 
+# List contents of the target directory for debugging
+RUN ls -l target
+
 # Set the entry point for the application
-ENTRYPOINT ["java", "-jar", "target/spotifyclone.jar"]
+ENTRYPOINT ["java", "-jar", "target/spotifyclone-0.0.1-SNAPSHOT.jar"]
 
 # Expose the port that the application will run on (adjust if necessary)
 EXPOSE 8080
