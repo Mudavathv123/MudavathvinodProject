@@ -1,32 +1,17 @@
-# Use a Maven image with JDK 11 to build the project
-FROM maven:3.8.1-openjdk-11 AS build
+# Use the official JDK 21 image from Docker Hub
+FROM openjdk:21-jdk
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the pom.xml file
-COPY pom.xml .
+# Copy the project files into the container
+COPY . /app
 
-# Download the project dependencies
-RUN mvn dependency:go-offline -B
+# Build the project (adjust the command if needed)
+RUN ./mvnw clean package -DskipTests
 
-# Copy the entire project source
-COPY src ./src
+# Set the entry point for the application
+ENTRYPOINT ["java", "-jar", "target/spotifyclone.jar"]
 
-# Package the application
-RUN mvn package -DskipTests
-
-# Use a Java image to run the application
-FROM openjdk:11-jre-slim
-
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the packaged application to the /app directory
-COPY --from=build /app/target/spotifyclone-1.0-SNAPSHOT.jar /app/spotifyclone.jar
-
-# Expose the port the application runs on
+# Expose the port that the application will run on (adjust if necessary)
 EXPOSE 8080
-
-# Run the application
-ENTRYPOINT ["java", "-jar", "spotifyclone.jar"]
