@@ -1,0 +1,13 @@
+[project]
+name = "spotifyclone"
+
+[language]
+name = "java"
+version = "21"
+
+[dependencies]
+package_managers = ["maven"]
+
+[scripts]
+build = "mvn clean install"
+start = "java -jar target/spotifyclone-0.0.1-SNAPSHOT.jar"
