@@ -3,7 +3,7 @@ name = "spotifyclone"
 
 [language]
 name = "java"
-version = "11"
+version = "21"
 
 [dependencies]
 package_managers = ["maven"]
