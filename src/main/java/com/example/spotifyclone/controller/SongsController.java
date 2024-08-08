@@ -16,7 +16,7 @@ import com.example.spotifyclone.service.SongService;
 
 @RestController
 @RequestMapping("/songs")
-@CrossOrigin(origins = "http://localhost:5173/") 
+@CrossOrigin(origins = "https://spotifyclonebyvinod.netlify.app/") 
 public class SongsController {
 
     @Autowired
