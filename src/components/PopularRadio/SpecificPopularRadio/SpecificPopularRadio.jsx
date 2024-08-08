@@ -5,10 +5,10 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { FaListUl } from "react-icons/fa";
 import { BeatLoader } from 'react-spinners';
 
-import '../specificpage.css'
-import Header from '../Header/Header'
-import Songs from "./Songs"
-import Footer from "../Footer/Footer";
+import '../../specificpage.css'
+import Header from './../../Header/Header'
+import Footer from "./../../Footer/Footer";
+import PopularRadioes from "./PopularRadioes";
 
 const constApiStatus = {
     intitial: "INITIAL",
@@ -17,9 +17,9 @@ const constApiStatus = {
     failure: "FAILURE"
 }
 
-const SpecificAlbumb = () => {
+const SpecificPopularRadio = () => {
 
-    const [albumbInfo, setAlbumbInfo] = useState({})
+    const [radioInfo, setRadioInfo] = useState({})
     const [specificAlbumApiStatus, setSpecificAlbumApiStatus] = useState(constApiStatus.intitial);
 
 
@@ -34,7 +34,7 @@ const SpecificAlbumb = () => {
             const response = await fetch(`https://spotifycloneb.onrender.com/albums/${id}`)
             const albumbsData = await response.json();
             if (response.ok) {
-                setAlbumbInfo(albumbsData);
+                setRadioInfo(albumbsData);
                 setSpecificAlbumApiStatus(constApiStatus.success)
             } else {
                 setSpecificAlbumApiStatus(constApiStatus.failure)
@@ -44,10 +44,10 @@ const SpecificAlbumb = () => {
         fetchAlbumbData();
     }, [])
 
-    const albumSongsListView = () => {
-        if (!albumbInfo?.songs) return null;
+    const radioSongsListView = () => {
+        if (!radioInfo?.songs) return null;
 
-        const { songs } = albumbInfo;
+        const { songs } = radioInfo;
 
         return (
             <>
@@ -65,32 +65,18 @@ const SpecificAlbumb = () => {
                 </div>
 
                 <div className="albumbs-songs-list-container">
-                    {/* <li className="song-list-container">
-                        <div className="title-and-number-container">
-                            <span className="row-number">#</span>
-                            <span className="title-head">Title</span>
-                        </div>
-                        <span className="song-duration"><TfiTimer size="20" /></span>
-                    </li>  
-                     <hr className="line" /> */
-                     }
-                   
-                    {
-                        // songs.map((eachSong, index) => <Songs key={eachSong.songId} song={eachSong} rowNumber={index + 1} />)
-                        
-                    }
-                    <Songs song = {songs}/>
+                    <PopularRadioes radioes = {songs}/>
                 </div>
             </>
         )
     }
 
-    const albumbHeadRender = () => {
+    const popularRadioHeadRender = () => {
 
-        if (!albumbInfo) return null;
+        if (!radioInfo) return null;
 
         const { albumArtist, albumImageUrl, albumName, albumbBgColor, totalDurartion,
-            albumbHeaderBgColor, releaseDate, totalSongs, songs } = albumbInfo
+            albumbHeaderBgColor, releaseDate, songs } = radioInfo
 
         const date = new Date(releaseDate);
 
@@ -125,7 +111,7 @@ const SpecificAlbumb = () => {
                     </div>
                 </div>
                 <div className="songs-container" style={bgColorForSongsList}>
-                    {albumSongsListView()}
+                    {radioSongsListView()}
                 </div>
                 <Footer />
             </div>
@@ -133,26 +119,26 @@ const SpecificAlbumb = () => {
         )
     }
 
-    const specificAlbumProcessView = () => (
+    const specificPopularRadioProcessView = () => (
         <div className="specific-album-loading-view">
             <BeatLoader color="#ffffff" />
         </div>
     )
 
-    const specificAlbumSuccessView = () => albumbHeadRender();
+    const specificPopularRadioSuccessView = () => popularRadioHeadRender();
 
-    const specificAlbumFailureView = () => (
+    const specificPopularRadioFailureView = () => (
         <div className="specific-album-failure-view-container">
             <img src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1721316967/MyMiniProjectsImages/hh8dcfjhxjfwerfdoato.png" alt="artist notfound" className="specific-album-notfound-img" />
             <h2 className='specific-album-notfound-head'>Opps! Data notfound</h2>
         </div>
     )
 
-    const specificAlbumRenderView = () => {
+    const specificPopularRadioRenderView = () => {
         switch (specificAlbumApiStatus) {
-            case constApiStatus.process: return specificAlbumProcessView();
-            case constApiStatus.success: return specificAlbumSuccessView();
-            case constApiStatus.failure: return specificAlbumFailureView();
+            case constApiStatus.process: return specificPopularRadioProcessView();
+            case constApiStatus.success: return specificPopularRadioSuccessView();
+            case constApiStatus.failure: return specificPopularRadioFailureView();
             default: null;
         }
     }
@@ -160,11 +146,11 @@ const SpecificAlbumb = () => {
     return (
 
         <div className="specific-albumb-container" >
-            <Header albumbHeaderBgColor={albumbInfo.albumbHeaderBgColor} />
-            {specificAlbumRenderView()}
+            <Header albumbHeaderBgColor={radioInfo.albumbHeaderBgColor} />
+            {specificPopularRadioRenderView()}
         </div>
     )
 
 }
 
-export default SpecificAlbumb
+export default SpecificPopularRadio

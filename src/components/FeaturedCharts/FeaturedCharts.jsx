@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { BeatLoader } from 'react-spinners';
-import './popularAlbams.css'
-import AlbumCard from './AlbumCard'
 import { Link } from 'react-router-dom';
-
+import FeaturesChartsCard from './FeaturesChartsCard.jsx';
+import './featuredCharts.css';
 
 const constApiStatus = {
     intitial: "INITIAL",
@@ -13,10 +12,10 @@ const constApiStatus = {
 }
 
 
-const PopularAlbams = () => {
+const FeaturedCharts = () => {
 
 
-    const [albumbList, setAlbumbList] = useState([])
+    const [chartsList, setChartsList] = useState([])
     const [apiViews, setApiView] = useState(constApiStatus.intitial)
 
     useEffect(() => {
@@ -27,7 +26,7 @@ const PopularAlbams = () => {
             const data = await response.json();
 
             if (response.ok) {
-                setAlbumbList(data)
+                setChartsList(data)
                 setApiView(constApiStatus.success);
             } else {
                 setApiView(constApiStatus.failure);
@@ -39,51 +38,51 @@ const PopularAlbams = () => {
 
 
 
-    const popularAlbumbsLoadingView = () => (
-        <div className="popular-albumbs-loading-view">
+    const featuredChartsLoadingView = () => (
+        <div className="featured-charts-loading-view">
             <BeatLoader color="#ffffff" />
         </div>
     )
 
-    const popularAlbumbsFailureView = () => (
-        <div className="popular-albumbs-failure-view-container">
+    const featuredChartsFailureView = () => (
+        <div className="featured-charts-failure-view-container">
             {/* <img src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1721316967/MyMiniProjectsImages/hh8dcfjhxjfwerfdoato.png" alt="artist notfound" className="artist-notfound-img" /> */}
             <h2 className='albumbs-notfound-head'>Opps! Data notfound</h2>
         </div>
     )
 
-    const popularAlbumbsSuccessView = () => (
+    const featuredChartsSuccessView = () => (
 
-        <ul className="popular-albumb-list-container">
+        <ul className="featured-charts-list-container">
             {
-                albumbList.slice(0,6).map(eachAlbumb => <AlbumCard key={eachAlbumb.albumId} albumb={eachAlbumb} />)
+                chartsList.slice(0,6).map(eachChart => <FeaturesChartsCard key={eachChart.albumId} chart={eachChart} />)
             }
         </ul>
 
     )
 
-    const renderPopularAlbumbsView = () => {
+    const featuredChartsAlbumbsView = () => {
 
         switch (apiViews) {
-            case constApiStatus.process: return popularAlbumbsLoadingView();
-            case constApiStatus.success: return popularAlbumbsSuccessView();
-            case constApiStatus.failure: return popularAlbumbsFailureView();
+            case constApiStatus.process: return featuredChartsLoadingView();
+            case constApiStatus.success: return featuredChartsSuccessView();
+            case constApiStatus.failure: return featuredChartsFailureView();
             default: null
         }
 
     }
 
     return (
-        <div className="popular-albams-container">
-            <div className="popular-albams-head-container">
-                <h1 className="popular-albams-head">Popular albums</h1>
-                <Link to="/section/allabumbs" className='link-to-show-section'>
-                    <span className="showall-link">Show all</span>
+        <div className="featured-charts-container">
+            <div className="featured-charts-head-container">
+                <h1 className="featured-charts-head">Featured Charts</h1>
+                <Link to="/section/allcharts" className='link-to-show-section'>
+                    <span className="featured-charts-showall-link">Show all</span>
                 </Link>
             </div>
-            {renderPopularAlbumbsView()}
+            {featuredChartsAlbumbsView()}
         </div>
     )
 }
 
-export default PopularAlbams
+export default FeaturedCharts

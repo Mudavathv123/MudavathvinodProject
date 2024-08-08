@@ -1,4 +1,7 @@
 
+.show-all-artists-container {
+    min-width: 75vw;
+}
 
 .show-all-artists-head-container {
     display: flex;
@@ -110,7 +113,8 @@
 
 .show-all-artists-songs {
     max-height: 81vh;
-   overflow: auto;
+    min-height:82vh; 
+    overflow: auto;
 }
 
 .show-all-artists-songs::-webkit-scrollbar {

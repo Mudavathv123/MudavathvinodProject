@@ -1,12 +1,12 @@
+
 .music-container {
     width: 75vw;
     border-radius: 16px;
-   
-   
   }
   .music-section-container {
     padding: 20px;
     max-height: 81vh;
+    min-height: 82vh;
     overflow: auto;
     box-sizing: border-box;
     background:linear-gradient(to bottom, #3f3e3ee8,#131111d5);

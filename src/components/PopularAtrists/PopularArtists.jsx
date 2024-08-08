@@ -22,7 +22,7 @@ const PopularArtist = () => {
         async function fetchData() {
 
             setApiView(constApiStatus.process);
-            const response = await fetch("http://localhost:8080/artists")
+            const response = await fetch("https://spotifycloneb.onrender.com/artists")
             const data = await response.json();
             if (response.ok) {
                 setArtistList(data);

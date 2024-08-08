@@ -1,5 +1,6 @@
 
 import './App.css'
+import Footer from './components/Footer/Footer.jsx'
 import FooterAdd from './components/FooterAdd/FooterAdd.jsx'
 import SideHeader from './components/SideHeader/SideHeader.jsx'
 import { Outlet } from 'react-router-dom'
@@ -13,7 +14,7 @@ function App() {
         <SideHeader />
         <Outlet />
       </div>
-      <FooterAdd />
+        <FooterAdd />
     </div>
 
   )

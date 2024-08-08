@@ -128,9 +128,10 @@
 }
 
 .favirote-icon-contaier {
+    min-width: 200px;
     display: flex;
     align-items: center;
-    padding-left: 50px;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -171,8 +172,14 @@
 .song-duration {
     color: #979696f1;
     font-size: 14px;
-    position: relative;
     font-family: Sans-serif;
+}
+
+.song-duration-timer {
+    color: #979696f1;
+    font-size: 14px;
+    font-family: Sans-serif;
+    margin-left: 90px;
 }
 
 .title-head {
@@ -180,6 +187,7 @@
     color: #979696f1;
     font-weight: 600;
     font-family: Sans-serif;
+    margin-left: 30px;
 }
 
 .songs-playlist-head-container {
@@ -289,4 +297,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.albumbs-songs-list-container {
+    padding-left: 30px;   
 }

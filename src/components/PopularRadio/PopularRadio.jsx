@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { BeatLoader } from 'react-spinners';
-import './popularAlbams.css'
-import AlbumCard from './AlbumCard'
 import { Link } from 'react-router-dom';
+import PopularRadioCard from './PopularRadioCard';
+import './popularRadio.css'
 
 
 const constApiStatus = {
@@ -13,10 +13,10 @@ const constApiStatus = {
 }
 
 
-const PopularAlbams = () => {
+const PopularRadio = () => {
 
 
-    const [albumbList, setAlbumbList] = useState([])
+    const [radioList, setRadioList] = useState([])
     const [apiViews, setApiView] = useState(constApiStatus.intitial)
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const PopularAlbams = () => {
             const data = await response.json();
 
             if (response.ok) {
-                setAlbumbList(data)
+                setRadioList(data)
                 setApiView(constApiStatus.success);
             } else {
                 setApiView(constApiStatus.failure);
@@ -39,51 +39,51 @@ const PopularAlbams = () => {
 
 
 
-    const popularAlbumbsLoadingView = () => (
-        <div className="popular-albumbs-loading-view">
+    const popularRadioLoadingView = () => (
+        <div className="popular-radio-loading-view">
             <BeatLoader color="#ffffff" />
         </div>
     )
 
-    const popularAlbumbsFailureView = () => (
-        <div className="popular-albumbs-failure-view-container">
+    const popularRadioFailureView = () => (
+        <div className="popular-radio-failure-view-container">
             {/* <img src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1721316967/MyMiniProjectsImages/hh8dcfjhxjfwerfdoato.png" alt="artist notfound" className="artist-notfound-img" /> */}
             <h2 className='albumbs-notfound-head'>Opps! Data notfound</h2>
         </div>
     )
 
-    const popularAlbumbsSuccessView = () => (
+    const popularRadioSuccessView = () => (
 
-        <ul className="popular-albumb-list-container">
+        <ul className="popular-radio-list-container">
             {
-                albumbList.slice(0,6).map(eachAlbumb => <AlbumCard key={eachAlbumb.albumId} albumb={eachAlbumb} />)
+                radioList.slice(0,6).map(eachRadio => <PopularRadioCard key={eachRadio.albumId} radio={eachRadio} />)
             }
         </ul>
 
     )
 
-    const renderPopularAlbumbsView = () => {
+    const renderPopularRadioView = () => {
 
         switch (apiViews) {
-            case constApiStatus.process: return popularAlbumbsLoadingView();
-            case constApiStatus.success: return popularAlbumbsSuccessView();
-            case constApiStatus.failure: return popularAlbumbsFailureView();
+            case constApiStatus.process: return popularRadioLoadingView();
+            case constApiStatus.success: return popularRadioSuccessView();
+            case constApiStatus.failure: return popularRadioFailureView();
             default: null
         }
 
     }
 
     return (
-        <div className="popular-albams-container">
-            <div className="popular-albams-head-container">
-                <h1 className="popular-albams-head">Popular albums</h1>
-                <Link to="/section/allabumbs" className='link-to-show-section'>
-                    <span className="showall-link">Show all</span>
+        <div className="popular-radio-container">
+            <div className="popular-radio-head-container">
+                <h1 className="popular-radio-head">Popular radio</h1>
+                <Link to="/section/allradioes" className='radio-link-to-show-section'>
+                    <span className="radio-showall-link">Show all</span>
                 </Link>
             </div>
-            {renderPopularAlbumbsView()}
+            {renderPopularRadioView()}
         </div>
     )
 }
 
-export default PopularAlbams
+export default PopularRadio

@@ -3,8 +3,8 @@ import { TfiTimer } from "react-icons/tfi";
 import { MdFavoriteBorder ,MdOutlineMoreHoriz} from "react-icons/md";
 import { BsTransparency } from "react-icons/bs";
 import DataTable , {createTheme} from "react-data-table-component";
-import {TableContainer,customStyles} from '../SpecificPageTableStyles'
-import './../specificpage.css'
+import {TableContainer,customStyles} from '../../SpecificPageTableStyles'
+import '../../specificpage.css'
 
 createTheme('solarized', {
     background: {
@@ -13,9 +13,9 @@ createTheme('solarized', {
   });
 
 
-const Songs = props => {
+const PopularRadioes = props => {
 
-    const {song} = props
+    const {radioes} = props
 
 
     const columns = [
@@ -40,14 +40,9 @@ const Songs = props => {
         },
     ]
 
-
-
-    // const { song, rowNumber } = props
-    // const { singer, songArtist, songCoresh, songDuration, songName, songId } = song
-
    
     let rno = 0;
-   const data = song.map(eachSeong => ({
+   const data = radioes.map(eachSeong => ({
             rowNumber : <>
             <span className="row-number">{ rno += 1}</span>
                  <span className="paly-icon"><IoMdPlay size="18" /></span>
@@ -66,24 +61,6 @@ const Songs = props => {
 
 
     return (
-
-        /*
-        <li className="song-list-head-container">
-            <div className="title-and-number-container">
-                <span className="row-number">{rowNumber}</span>
-                <span className="paly-icon"><IoMdPlay size="18" /></span>
-                <div className="title-head-container">
-                    <h3 className='song-name'>{songName}</h3>
-                    <p className='song-coresh'>{songArtist}, {singer}, {songCoresh}</p>
-                </div>
-            </div>
-            <div className="favirote-icon-contaier">
-                <span className='favarate-icon'><MdFavoriteBorder size = "16" /></span>
-                <span className='song-duration'>{songDuration}</span>
-                <span className='song-more-icon'><MdOutlineMoreHoriz size = "16" /></span>
-            </div>
-        </li> */
-
         <TableContainer >
             <DataTable
             columns={columns}
@@ -96,4 +73,4 @@ const Songs = props => {
     )
 }
 
-export default Songs
+export default PopularRadioes

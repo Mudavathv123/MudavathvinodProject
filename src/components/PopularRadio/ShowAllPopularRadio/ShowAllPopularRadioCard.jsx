@@ -1,11 +1,11 @@
 
 import { Link, useNavigate } from 'react-router-dom';
-import '../../components/sectionPage.css'
+import './../../../components/sectionPage.css'
 
-const ShowAllAbumCard = props => {
+const ShowAllPopularRadioCard = props => {
 
-    const { albumb } = props
-    const { albumArtist, albumName, albumImageUrl, albumId } = albumb;
+    const { radio } = props
+    const { albumArtist, albumName, albumImageUrl, albumId } = radio;
 
     const navigate = useNavigate();
 
@@ -29,4 +29,4 @@ const ShowAllAbumCard = props => {
     )
 }
 
-export default ShowAllAbumCard
+export default ShowAllPopularRadioCard

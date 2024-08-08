@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { BeatLoader } from 'react-spinners';
-import ShowAllAbumCard from './ShowAllAlbumCard';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import '../../components/sectionPage.css'
+import Header from '../../Header/Header';
+import Footer from '../../Footer/Footer';
+import './../../../components/sectionPage.css'
+import ShowAllTrendingEpisodeCard from './ShowAllTrendingEpisodeCard';
 
 const constApiStatus = {
     intitial: "INITIAL",
@@ -13,10 +13,10 @@ const constApiStatus = {
 }
 
 
-const ShowAllAbumsPage = () => {
+const ShowAllTrendingEpisodes = () => {
 
 
-    const [albumbList, setAlbumbList] = useState([])
+    const [allEpisodesList, setAllEpisodesList] = useState([])
     const [apiViews, setApiView] = useState(constApiStatus.intitial)
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const ShowAllAbumsPage = () => {
             console.log(data);
 
             if (response.ok) {
-                setAlbumbList(data)
+                setAllEpisodesList(data)
                 setApiView(constApiStatus.success);
             } else {
                 setApiView(constApiStatus.failure);
@@ -41,35 +41,35 @@ const ShowAllAbumsPage = () => {
 
 
 
-    const popularAlbumbsLoadingView = () => (
+    const showAllTrendingEpisodesLoadingView = () => (
         <div className="show-allalbum-loading-view">
             <BeatLoader color="#ffffff" />
         </div>
     )
 
-    const popularAlbumbsFailureView = () => (
+    const showAllTrendingEpisodesFailureView = () => (
         <div className="show-allalbum-failure-view-container">
             {/* <img src="https://res.cloudinary.com/dnml2vs6t/image/upload/v1721316967/MyMiniProjectsImages/hh8dcfjhxjfwerfdoato.png" alt="artist notfound" className="show-allalbum-notfound-img" /> */}
             <h2 className='show-allalbum-notfound-head'>Opps! Data notfound</h2>
         </div>
     )
 
-    const popularAlbumbsSuccessView = () => (
+    const showAllTrendingEpisodesSuccessView = () => (
 
         <ul className="show-allalbum-list-container">
             {
-                albumbList.map(eachAlbumb => <ShowAllAbumCard key={eachAlbumb.albumId} albumb={eachAlbumb} />)
+                allEpisodesList.map(eachEpisode => <ShowAllTrendingEpisodeCard key={eachEpisode.albumId} trendingEpisode={eachEpisode} />)
             }
         </ul>
 
     )
 
-    const renderPopularAlbumbsView = () => {
+    const renderShowAllTrendingEpisodesView = () => {
 
         switch (apiViews) {
-            case constApiStatus.process: return popularAlbumbsLoadingView();
-            case constApiStatus.success: return popularAlbumbsSuccessView();
-            case constApiStatus.failure: return popularAlbumbsFailureView();
+            case constApiStatus.process: return showAllTrendingEpisodesLoadingView();
+            case constApiStatus.success: return showAllTrendingEpisodesSuccessView();
+            case constApiStatus.failure: return showAllTrendingEpisodesFailureView();
             default: null
         }
 
@@ -80,13 +80,13 @@ const ShowAllAbumsPage = () => {
             <Header />
             <div className="show-allalbum-songs">
                 <div className="show-allalbum-head-container">
-                    <h1 className="show-allalbum-head">Popular albums</h1>
+                    <h1 className="show-allalbum-head">Trending Episodes</h1>
                 </div>
-                {renderPopularAlbumbsView()}
+                {renderShowAllTrendingEpisodesView()}
                 <Footer />
             </div>
         </div>
     )
 }
 
-export default ShowAllAbumsPage
+export default ShowAllTrendingEpisodes
