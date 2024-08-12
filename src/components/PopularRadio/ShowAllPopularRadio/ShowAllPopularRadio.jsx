@@ -23,8 +23,8 @@ const ShowAllPopularRadio = () => {
         const fetchData = async () => {
 
             setApiView(constApiStatus.process);
-            // const response = await fetch("https://spotifycloneb.onrender.com/albums")
-            const response = await fetch("http://localhost:8080/radioes")
+            const response = await fetch("https://spotifycloneb.onrender.com/radioes")
+            // const response = await fetch("http://localhost:8080/radioes")
             const data = await response.json();
             // console.log(response);
             console.log(data);
