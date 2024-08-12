@@ -16,7 +16,8 @@ import com.example.spotifyclone.service.PopularArtistsHomeService;
 
 @RestController
 @RequestMapping("/artists")
-@CrossOrigin(origins = "https://spotifyclonebyvinod.netlify.app/") 
+// @CrossOrigin(origins = "https://spotifyclonebyvinod.netlify.app/") 
+@CrossOrigin(origins = "http://localhost:5173/") 
 
 public class PopularArtistsHomeController {
 

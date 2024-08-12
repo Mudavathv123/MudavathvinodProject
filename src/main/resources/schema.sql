@@ -30,3 +30,27 @@ CREATE TABLE IF NOT EXISTS songs(
     albumid INTEGER,
     foreign key (albumid) references albums(albumid)
 );
+
+
+CREATE TABLE IF NOT EXISTS radio (
+    radioid INTEGER PRIMARY KEY AUTO_INCREMENT,
+    radioimage TEXT,
+    artistname VARCHAR(500),
+    moreartists VARCHAR(700),
+    saves INTEGER,
+    radioheaderbgcolor VARCHAR(200),
+    radiobgcolor VARCHAR(200)
+);
+
+CREATE TABLE IF NOT EXISTS radiosongs (
+    radiosongid INTEGER PRIMARY KEY AUTO_INCREMENT,
+    songname VARCHAR(250),
+    singers TEXT,
+    songimage TEXT,
+    albumname VARCHAR(500),
+    songduration VARCHAR(200),
+    radioid INTEGER,
+    FOREIGN KEY (radioid) REFERENCES radio(radioid)
+    
+);
+
