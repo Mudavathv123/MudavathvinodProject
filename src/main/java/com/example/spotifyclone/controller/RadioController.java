@@ -14,7 +14,8 @@ import com.example.spotifyclone.service.RadioService;
 
 @RestController
 @RequestMapping("/radioes")
-@CrossOrigin(origins = "http://localhost:5173/") 
+@CrossOrigin(origins = "https://spotifyclonebyvinod.netlify.app/") 
+// @CrossOrigin(origins = "http://localhost:5173/") 
 public class RadioController {
 
     @Autowired
