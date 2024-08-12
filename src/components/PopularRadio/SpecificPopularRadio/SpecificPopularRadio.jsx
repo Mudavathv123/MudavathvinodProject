@@ -31,7 +31,8 @@ const SpecificPopularRadio = () => {
         const fetchAlbumbData = async () => {
             setSpecificAlbumApiStatus(constApiStatus.process);
 
-            const response = await fetch(`https://spotifycloneb.onrender.com/albums/${id}`)
+            const response = await fetch(`https://spotifycloneb.onrender.com/radioes/${id}`)
+            // const response = await fetch(`http://localhost:8080/radioes/${id}`)
             const albumbsData = await response.json();
             if (response.ok) {
                 setRadioInfo(albumbsData);
@@ -45,9 +46,9 @@ const SpecificPopularRadio = () => {
     }, [])
 
     const radioSongsListView = () => {
-        if (!radioInfo?.songs) return null;
+        if (!radioInfo?.radioSongs) return null;
 
-        const { songs } = radioInfo;
+        const { radioSongs } = radioInfo;
 
         return (
             <>
@@ -65,7 +66,7 @@ const SpecificPopularRadio = () => {
                 </div>
 
                 <div className="albumbs-songs-list-container">
-                    <PopularRadioes radioes = {songs}/>
+                    <PopularRadioes radioes = {radioSongs}/>
                 </div>
             </>
         )
@@ -75,35 +76,63 @@ const SpecificPopularRadio = () => {
 
         if (!radioInfo) return null;
 
-        const { albumArtist, albumImageUrl, albumName, albumbBgColor, totalDurartion,
-            albumbHeaderBgColor, releaseDate, songs } = radioInfo
+        const { artistName, radioImage, moreArtistName, radioBgColor,
+            radioHeaderBgColor, songsSaves, radioSongs } = radioInfo
 
-        const date = new Date(releaseDate);
-
-        const [min, sec] = totalDurartion || "00:00".split(":");
+        const [min, sec] = "1:0" || "00:00".split(":");
 
         const bgColorForAlbumHead = {
-            background: `linear-gradient(to bottom, ${albumbBgColor} , ${albumbHeaderBgColor})`
+            background: `linear-gradient(to bottom, ${radioBgColor} , ${radioHeaderBgColor})`
         };
 
         const bgColorForSongsList = {
-            background: `linear-gradient(to top, #000, #000,${albumbHeaderBgColor} )`
+            background: `linear-gradient(to top, #000, #000,${radioHeaderBgColor} )`
         };
+
+
+        const concertToHMS = (seconds) => {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60) ;
+            const secs = Math.floor(seconds % 60);
+    
+            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+            const formattedSeconds = secs < 10 ? '0' + secs : secs;
+    
+            if(hours != 0) return hours +" hr " +formattedMinutes +" min ";
+            else if(minutes != 0) return minutes +" min " +formattedSeconds +" sec "
+            else return null;
+        }
+    
+        const findTotalDurationOfSongs = (songs) => {
+            let totalSeconds = 0;
+             songs.forEach(eachSong => {
+                const duration = eachSong.songDuration.split(":");
+                
+                const min = parseInt(duration[0],10);
+                const sec = parseInt(duration[1],10);
+    
+                totalSeconds += (min * 60) + sec;
+            })
+            return concertToHMS(totalSeconds);
+        }
+
+        let totalSeconds = findTotalDurationOfSongs(radioSongs);
 
         return (
 
             <div className="scroll-albums-songs">
                 <div className="specific-album-head-container" style={bgColorForAlbumHead} >
-                    <img src={albumImageUrl} alt="albumb head" className="album-head-img" />
+                    <img src={radioImage} alt="albumb head" className="album-head-img" />
                     <div className="albumb-head-items-container">
-                        <p className="album-type">album</p>
-                        <h1 className="albumb-heading">{albumName}</h1>
+                        <p className="album-type">Playlist</p>
+                        <h1 className="albumb-heading">{artistName}</h1>
+                        <p className="moreartist-name">{moreArtistName}</p>
                         <div className="albumb-duration-container">
-                            <span className="album-artist-name">{albumArtist}</span>
+                            <span className="album-artist-name">Spotify</span>
                             <ul className="album-head-description-list">
-                                <li><span className="release-date">{date.getFullYear()}</span></li>
+                                <li><span className="save-songs">{songsSaves} saves</span></li>
                                 {
-                                    songs.length !== 0 && <li><span className="total-songs">{songs.length} Songs, {min} min {sec} sec </span></li>
+                                    radioSongs.length !== 0 && <li className="songs-total">{radioSongs.length} Songs, <span className="total-songs">about {totalSeconds} </span></li>
                                 }
 
                             </ul>
@@ -146,7 +175,7 @@ const SpecificPopularRadio = () => {
     return (
 
         <div className="specific-albumb-container" >
-            <Header albumbHeaderBgColor={radioInfo.albumbHeaderBgColor} />
+            <Header albumbHeaderBgColor={radioInfo.radioHeaderBgColor} />
             {specificPopularRadioRenderView()}
         </div>
     )

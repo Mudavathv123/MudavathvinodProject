@@ -24,6 +24,7 @@ const ShowAllFeaturedCharts = () => {
 
             setApiView(constApiStatus.process);
             const response = await fetch("https://spotifycloneb.onrender.com/albums")
+            // const response = await fetch("http://localhost:8080/albums")
             const data = await response.json();
             // console.log(response);
             console.log(data);

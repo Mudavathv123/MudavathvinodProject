@@ -15,12 +15,28 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    
+}
+
+.moreartist-name {
+    font-size: 16px;
+    color: #c9b8b8e8;
+    font-family: Sans-serif;
+    font-weight: 600;
+    padding-top: 10px;
+    line-height: 0px;
 }
 
 .album-head-img {
     height: 180px;
     /* box-shadow: 10px 10px 10px #c5bb6f, -10px -10px 10px #c5bb6f; */
     border-radius: 8px;
+}
+
+.song-img {
+    height: 36px;
+    width: 36px;
+    border-radius: 4px;
 }
 
 .albumb-heading {
@@ -33,14 +49,12 @@
 .album-type {
 
     font-size: 16px;
-    line-height: 12px;
     color: #fff;
     font-family: Sans-serif;
 }
 
 .album-artist-name {
     font-size: 16px;
-    line-height: 12px;
     color: #fff;
     font-family: Sans-serif;
     font-weight: 600;
@@ -48,15 +62,26 @@
 
 .release-date {
     font-size: 16px;
-    line-height: 12px;
     color: #fff;
     font-family: Sans-serif;
 }
 
 .total-songs {
     font-size: 16px;
-    line-height: 12px;
+    color: #c9b8b8e8;
+    font-weight: 600;
+}
+
+.songs-total {
+    font-size: 16px;
     color: #fff;
+    font-weight: 600;
+}
+
+.save-songs {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
 }
 
 .album-head-description-list {
@@ -72,7 +97,6 @@
     display: flex;
     align-items: center;
     gap: 30px;
-    
 }
 
 .paly-icon {
@@ -159,6 +183,7 @@
     font-size: 16px;
     font-weight: 600;
     font-family: Sans-serif;
+    line-height: 4px;
 }
 
 .song-coresh {
@@ -182,12 +207,24 @@
     margin-left: 90px;
 }
 
+.album-in-radio-song {
+    color: #979696f1;
+    font-size: 14px;
+    font-family: Sans-serif;
+}
+
 .title-head {
     font-size: 14px;
     color: #979696f1;
     font-weight: 600;
     font-family: Sans-serif;
     margin-left: 30px;
+}
+
+.title-head-container {
+    display: flex;
+    align-items: center;
+    gap:10px
 }
 
 .songs-playlist-head-container {

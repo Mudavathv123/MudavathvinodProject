@@ -57,6 +57,7 @@
     flex-direction: column;
     justify-content: start;
     max-height: 240px;
+    min-height: 220px;
     gap:8px;
     padding: 10px;
     transition: .3s ease-out;
@@ -65,7 +66,7 @@
 .popular-radio-list-container {
     list-style-type: none;
     display: flex;
-    align-items: center;
+    align-items: start;
     gap:20px;
     padding-left: 20px;
     max-width: 75vw;

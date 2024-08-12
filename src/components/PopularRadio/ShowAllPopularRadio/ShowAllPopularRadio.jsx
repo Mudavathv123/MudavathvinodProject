@@ -23,7 +23,8 @@ const ShowAllPopularRadio = () => {
         const fetchData = async () => {
 
             setApiView(constApiStatus.process);
-            const response = await fetch("https://spotifycloneb.onrender.com/albums")
+            // const response = await fetch("https://spotifycloneb.onrender.com/albums")
+            const response = await fetch("http://localhost:8080/radioes")
             const data = await response.json();
             // console.log(response);
             console.log(data);
@@ -58,7 +59,7 @@ const ShowAllPopularRadio = () => {
 
         <ul className="show-allalbum-list-container">
             {
-                allRadioList.map(eachRadio => <ShowAllPopularRadioCard key={eachRadio.albumId} radio={eachRadio} />)
+                allRadioList.map(eachRadio => <ShowAllPopularRadioCard key={eachRadio.radioId} radio={eachRadio} />)
             }
         </ul>
 

@@ -30,6 +30,14 @@ const PopularRadioes = props => {
             selector: row => row.title,
         },
         {
+            name: <span className="title-head">Album</span>,
+            selector: row => row.album
+        },
+        {
+            name: <span className="title-head">Date added</span>,
+            selector: row => row.dateAdded
+        },
+        {
             name: <span className="song-duration-timer"><TfiTimer size="20" /></span>,
             selector: row => row.time,
             width:"240px",
@@ -48,9 +56,13 @@ const PopularRadioes = props => {
                  <span className="paly-icon"><IoMdPlay size="18" /></span>
             </>,
             title :  <div className="title-head-container">
-                         <h3 className='song-name'>{eachSeong.songName}</h3>
-                         <p className='song-coresh'>{eachSeong.songArtist}, {eachSeong.singer}, {eachSeong.songCoresh}</p>
+                        <img src = {eachSeong.songImage} alt = "song album" className="song-img" />
+                        <div className="song-description">
+                            <h3 className='song-name'>{eachSeong.songName}</h3>
+                            <p className='song-coresh'>{eachSeong.singers}</p>
+                         </div>
                      </div>,
+            album : <p className = "album-in-radio-song">{eachSeong.albumName.length ? eachSeong.albumName.slice(0,16) +"..." : eachSeong.albumName}</p>,
             time : <div className="favirote-icon-contaier">
                      <MdFavoriteBorder size = "16" className='favarate-icon'/>
                      <span className='song-duration'>{eachSeong.songDuration}</span>

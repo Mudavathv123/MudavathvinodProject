@@ -32,6 +32,7 @@ const SpecificAlbumb = () => {
             setSpecificAlbumApiStatus(constApiStatus.process);
 
             const response = await fetch(`https://spotifycloneb.onrender.com/albums/${id}`)
+            // const response = await fetch(`http://localhost:8080/albums/${id}`)
             const albumbsData = await response.json();
             if (response.ok) {
                 setAlbumbInfo(albumbsData);
@@ -85,16 +86,41 @@ const SpecificAlbumb = () => {
         )
     }
 
+    const concertToHMS = (seconds) => {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60) ;
+        const secs = Math.floor(seconds % 60);
+
+        const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+        const formattedSeconds = secs < 10 ? '0' + secs : secs;
+
+        if(hours != 0) return hours +" hour " +formattedMinutes +" min ";
+        else if(minutes != 0) return minutes +" min " +formattedSeconds +" sec "
+        else return null;
+    }
+
+    const findTotalDurationOfSongs = (songs) => {
+        let totalSeconds = 0;
+         songs.forEach(eachSong => {
+            const duration = eachSong.songDuration.split(":");
+            
+            const min = parseInt(duration[0],10);
+            const sec = parseInt(duration[1],10);
+
+            totalSeconds += (min * 60) + sec;
+        })
+        return concertToHMS(totalSeconds);
+    }
+
     const albumbHeadRender = () => {
 
         if (!albumbInfo) return null;
 
-        const { albumArtist, albumImageUrl, albumName, albumbBgColor, totalDurartion,
-            albumbHeaderBgColor, releaseDate, totalSongs, songs } = albumbInfo
+        const { albumArtist, albumImageUrl, albumName, albumbBgColor,
+            albumbHeaderBgColor, releaseDate, songs } = albumbInfo
 
         const date = new Date(releaseDate);
 
-        const [min, sec] = totalDurartion || "00:00".split(":");
 
         const bgColorForAlbumHead = {
             background: `linear-gradient(to bottom, ${albumbBgColor} , ${albumbHeaderBgColor})`
@@ -103,6 +129,8 @@ const SpecificAlbumb = () => {
         const bgColorForSongsList = {
             background: `linear-gradient(to top, #000, #000,${albumbHeaderBgColor} )`
         };
+
+        let totalSeconds = findTotalDurationOfSongs(songs);
 
         return (
 
@@ -117,7 +145,7 @@ const SpecificAlbumb = () => {
                             <ul className="album-head-description-list">
                                 <li><span className="release-date">{date.getFullYear()}</span></li>
                                 {
-                                    songs.length !== 0 && <li><span className="total-songs">{songs.length} Songs, {min} min {sec} sec </span></li>
+                                    songs.length !== 0 && <li><span className="total-songs">{songs.length} Songs, {totalSeconds} </span></li>
                                 }
 
                             </ul>
