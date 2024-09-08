@@ -1,0 +1,104 @@
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.track-image {
+  height: 140px;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.track-name {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Roboto';
+  color: #fff;
+}
+
+.tack-genre {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  color: #3b82f6;
+}
+
+.track-duration-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.duration {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #ffff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .track-image {
+    height: 60px;
+  }
+
+  .track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .track-name {
+    font-size: 16px;
+    font-weight: 800;
+    font-family: 'Roboto';
+    color: #fff;
+  }
+
+  .tack-genre {
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Roboto';
+    color: #3b82f6;
+  }
+
+  .track-duration-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .duration {
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Roboto';
+    color: #fff;
+  }
+
+  .delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #ffff;
+    cursor: pointer;
+  }
+}
