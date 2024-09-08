@@ -1,0 +1,69 @@
+/* Write your CSS here */
+
+.competing-team {
+  font-size: 36px;
+  font-family: 'Bree Serif';
+  color: #fff;
+}
+
+.date {
+  font-size: 32px;
+  font-family: 'Bree Serif';
+  color: #ffff;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.team-container > p {
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Bree Serif';
+}
+
+.latest-second-item > h2 {
+  font-family: 'Bree Serif';
+  color: #fff;
+  font-size: 18px;
+}
+.latest-second-item > p {
+  font-family: 'Bree Serif';
+  color: #fff;
+  font-size: 14px;
+}
+
+.latest-match-items {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #5755a7;
+}
+
+.competing-team-logo {
+  height: 60px;
+}
+
+.latest-second-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-items {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    gap: 60px;
+  }
+  .competing-team-logo {
+    height: 120px;
+  }
+}
