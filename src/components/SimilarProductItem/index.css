@@ -1,0 +1,35 @@
+/* Write your CSS here */
+
+.similar-product-img {
+  height: 200px;
+  border-radius: 8px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.similar-product-items {
+  height: 400px;
+  width: 200px;
+}
+
+.title {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.brand {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+}
